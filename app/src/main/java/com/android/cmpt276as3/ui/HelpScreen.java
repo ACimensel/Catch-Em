@@ -1,14 +1,16 @@
-package com.android.cmpt276as3;
+package com.android.cmpt276as3.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.android.cmpt276as3.R;
+
+public class HelpScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_help_screen);
     }
 }
