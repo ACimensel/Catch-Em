@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WelcomeScreen">
+    tools:context=".ui.WelcomeScreen"
+    android:background="@drawable/welcome_screen_bg" >
 
     <Button
         android:id="@+id/button_gotomain"
@@ -13,15 +14,25 @@
         android:text="@string/main_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gotta Catch Them All!"
-        android:textSize="20sp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="4"
+        android:shadowRadius="1"
+        android:text="@string/game_title"
+        android:textAllCaps="true"
+        android:textColor="#FFC107"
+        android:textScaleX="1.1"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +42,15 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginBottom="8dp"
-        android:text="Team:\nArtun Cimensel &amp; (Thomas) Hyeonyoung Park"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:text="@string/team_member_names"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -42,6 +59,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/button_pokeball"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/button_gotomain"
+        app:layout_constraintEnd_toStartOf="@+id/button_gotomain"
+        app:layout_constraintTop_toTopOf="@+id/button_gotomain"
+        app:srcCompat="@drawable/pokeball" />
+
+    <ImageView
+        android:id="@+id/button_pokeball2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleX="-1"
+        android:layout_marginStart="10dp"
+        android:adjustViewBounds="true"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/button_gotomain"
+        app:layout_constraintStart_toEndOf="@+id/button_gotomain"
+        app:layout_constraintTop_toTopOf="@+id/button_gotomain"
+        app:srcCompat="@drawable/pokeball" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
