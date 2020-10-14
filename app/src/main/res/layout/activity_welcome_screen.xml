@@ -62,7 +62,7 @@
         app:layout_constraintGuide_percent="0.25" />
 
     <ImageView
-        android:id="@+id/button_pokeball"
+        android:id="@+id/pokeball_img"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="10dp"
@@ -75,7 +75,7 @@
         app:srcCompat="@drawable/pokeball" />
 
     <ImageView
-        android:id="@+id/button_pokeball2"
+        android:id="@+id/pokeball_img2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:scaleX="-1"
