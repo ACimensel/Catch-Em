@@ -3,4 +3,7 @@
     <string name="main_menu">Main Menu</string>
     <string name="game_title">Gotta Catch Them All!</string>
     <string name="team_member_names"><![CDATA[Team:\nArtun Cimensel & (Thomas) Hyeonyoung Park]]></string>
+    <string name="start_game">Start Game!</string>
+    <string name="options">Options</string>
+    <string name="help">Help</string>
 </resources>
