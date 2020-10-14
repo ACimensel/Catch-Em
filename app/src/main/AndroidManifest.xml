@@ -9,17 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.WelcomeScreen">
+        <activity
+            android:name=".ui.WelcomeScreen"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HelpScreen"/>
-        <activity android:name=".ui.OptionsScreen" />
-        <activity android:name=".ui.GameScreen" />
-        <activity android:name=".ui.MainMenu" />
+        <activity android:name=".ui.HelpScreen"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
+            >
+        </activity>
+        <activity android:name=".ui.OptionsScreen"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
+            >
+        </activity>
+        <activity android:name=".ui.GameScreen"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
+            >
+        </activity>
+        <activity android:name=".ui.MainMenu"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
+            >
+        </activity>
     </application>
 
 </manifest>
