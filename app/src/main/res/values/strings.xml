@@ -6,4 +6,9 @@
     <string name="start_game">Start Game!</string>
     <string name="options">Options</string>
     <string name="help">Help</string>
+    <string name="num_wild_pokemon_option">%1$d wild pokemon</string>
+    <string name="num_rows_cols_option">%1$d Rows x %2$d columns</string>
+    <string name="select_board_size">Select Board Size</string>
+    <string name="select_number_of_wild_pokemon">Select Number of Wild Pokemon</string>
+    <string name="save_settings">Save Settings</string>
 </resources>
