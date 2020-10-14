@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +19,13 @@ import android.widget.Toast;
 
 import com.android.cmpt276as3.R;
 
+import java.util.Random;
+
 public class GameScreen extends AppCompatActivity {
     private static final String TAG = "GameScreen";
     private static final int NUM_ROWS = 4;
-    private static final int NUM_COLS = 10;
+    private static final int NUM_COLS = 5;
+    private static int NUM_POKEMONS = 10 ;
 
     Button buttons[][] = new Button[NUM_ROWS][NUM_COLS];
 
@@ -35,11 +39,15 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         this.setTitle(TAG);
 
+        //TODO: Separate the game logic with the UI
         populateButtons();
     }
 
+
     private void populateButtons() {
         TableLayout table = (TableLayout) findViewById(R.id.tableForButtons);
+
+        //populating buttons in table
         for(int row = 0; row < NUM_ROWS; row ++){
             TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new TableLayout.LayoutParams(
@@ -59,6 +67,7 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
+                //when the button is clicked,
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -72,6 +81,7 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
+
     private void gridButtonClicked(int row, int col) {
         Toast.makeText(this, "btn clicked",Toast.LENGTH_SHORT).show();
         Button btn = buttons[row][col];
@@ -79,14 +89,22 @@ public class GameScreen extends AppCompatActivity {
         //Lock Button Sizes:
         lockButtonSizes();
 
-        //Scale image to button
-        int newWidth = btn.getWidth();
-        int newHeight = btn.getHeight();
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-        Resources resource = getResources();
-        btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        //If the button is Pokemon, set the backGround to pokemon
+        if(btnisPokemon()){
+            int newWidth = btn.getWidth();
+            int newHeight = btn.getHeight();
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+            Resources resource = getResources();
+            btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        }
 
+
+    }
+
+    //TODO: MAKE the function where it knows if it is pokemon or not
+    private boolean btnisPokemon() {
+        return false;
     }
 
     private void lockButtonSizes() {
