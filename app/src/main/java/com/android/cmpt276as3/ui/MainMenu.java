@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.cmpt276as3.R;
+import com.android.cmpt276as3.model.OptionsManager;
 
 public class MainMenu extends AppCompatActivity {
     private static final String TAG = "MainMenu";
+    private OptionsManager optManager;
 
     public static Intent makeLaunchIntent(Context context) {
         return new Intent(context, MainMenu.class);
@@ -25,6 +28,9 @@ public class MainMenu extends AppCompatActivity {
         setUpStartGameButton();
         setUPOptionsButton();
         setUpHelpButton();
+
+        optManager = OptionsManager.getInstance();
+        optManager.update(this);
     }
 
     private void setUpStartGameButton() {
