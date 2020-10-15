@@ -18,11 +18,13 @@ import android.widget.TableRow;
 import android.widget.Toast;
 
 import com.android.cmpt276as3.R;
+import com.android.cmpt276as3.model.OptionsManager;
 
 import java.util.Random;
 
 public class GameScreen extends AppCompatActivity {
     private static final String TAG = "GameScreen";
+    private OptionsManager optManager;
     private static final int NUM_ROWS = 4;
     private static final int NUM_COLS = 5;
     private static int NUM_POKEMONS = 10 ;
@@ -39,13 +41,15 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         this.setTitle(TAG);
 
+        optManager = OptionsManager.getInstance();
+
         //TODO: Separate the game logic with the UI
         populateButtons();
     }
 
 
     private void populateButtons() {
-        TableLayout table = (TableLayout) findViewById(R.id.tableForButtons);
+        TableLayout table = findViewById(R.id.tableForButtons);
 
         //populating buttons in table
         for(int row = 0; row < NUM_ROWS; row ++){

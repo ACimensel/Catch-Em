@@ -12,9 +12,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.android.cmpt276as3.R;
+import com.android.cmpt276as3.model.OptionsManager;
 
 public class OptionsScreen extends AppCompatActivity {
     private static final String TAG = "OptionsScreen";
+    private OptionsManager optManager;
     private int selectedNumWildPokemon;
     private int selectedNumRows;
     private int selectedNumCols;
@@ -28,9 +30,12 @@ public class OptionsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options_screen);
         this.setTitle(TAG);
+
         selectedNumWildPokemon = getNumWildPokemon(this);
         selectedNumRows = getNumRows(this);
         selectedNumCols = getNumCols(this);
+
+        optManager = OptionsManager.getInstance();
 
         createRadioButtonsNumRowsColumns();
         createRadioButtonsNumWildPokemon();
@@ -38,7 +43,7 @@ public class OptionsScreen extends AppCompatActivity {
     }
 
     private void createRadioButtonsNumRowsColumns() {
-        RadioGroup groupBoardSize = (RadioGroup) findViewById(R.id.radio_group_num_rows_cols);
+        RadioGroup groupBoardSize = findViewById(R.id.radio_group_num_rows_cols);
         int[] numRowsArr = getResources().getIntArray(R.array.num_rows);
         int[] numColsArr = getResources().getIntArray(R.array.num_columns);
 
@@ -66,7 +71,6 @@ public class OptionsScreen extends AppCompatActivity {
                 button.setChecked(true);
             }
         }
-
         /*
         if(numRowsArr.length > 0 && numColsArr.length > 0) {
             ((RadioButton) groupBoardSize.getChildAt(0)).setChecked(true);
@@ -74,12 +78,10 @@ public class OptionsScreen extends AppCompatActivity {
     }
 
     private void createRadioButtonsNumWildPokemon() {
-        RadioGroup groupNumWildPokemon = (RadioGroup) findViewById(R.id.radio_group_num_wild_pokemon);
+        RadioGroup groupNumWildPokemon = findViewById(R.id.radio_group_num_wild_pokemon);
         int[] numWildPokemonArr = getResources().getIntArray(R.array.num_wild_pokemon);
 
-        for(int i = 0; i < numWildPokemonArr.length; i++) {
-            final int numWildPokemon = numWildPokemonArr[i];
-
+        for (final int numWildPokemon : numWildPokemonArr) {
             // create new radio button
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.num_wild_pokemon_option, numWildPokemon));
@@ -95,7 +97,7 @@ public class OptionsScreen extends AppCompatActivity {
             // add to radio group
             groupNumWildPokemon.addView(button);
 
-            if(numWildPokemon == getNumWildPokemon(this)) {
+            if (numWildPokemon == getNumWildPokemon(this)) {
                 button.setChecked(true);
             }
         }
@@ -106,17 +108,12 @@ public class OptionsScreen extends AppCompatActivity {
     }
 
     private void setupSaveButton() {
-        Button saveButton = (Button) findViewById(R.id.save_options);
+        Button saveButton = findViewById(R.id.save_options);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                RadioGroup groupNumWildPokemon = (RadioGroup) findViewById(R.id.radio_group_num_wild_pokemon);
-                int idOfSelected = groupNumWildPokemon.getCheckedRadioButtonId();
-                RadioButton btnNumWildPokemon = findViewById(idOfSelected);
-                String message = btnNumWildPokemon.getText().toString();
-                */
                 saveData(selectedNumRows, selectedNumCols, selectedNumWildPokemon);
+                optManager.update(OptionsScreen.this);
                 finish();
             }
         });
