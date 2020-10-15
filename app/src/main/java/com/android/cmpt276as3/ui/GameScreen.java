@@ -21,11 +21,17 @@ import com.android.cmpt276as3.R;
 
 import java.util.Random;
 
+import model.GameState;
+import model.PrintTable;
+
 public class GameScreen extends AppCompatActivity {
     private static final String TAG = "GameScreen";
     private static final int NUM_ROWS = 4;
     private static final int NUM_COLS = 5;
-    private static int NUM_POKEMONS = 10 ;
+
+    //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
+    GameState gameState = new GameState();
+    int[][] table = gameState.createTable();
 
     Button buttons[][] = new Button[NUM_ROWS][NUM_COLS];
 
@@ -90,7 +96,7 @@ public class GameScreen extends AppCompatActivity {
         lockButtonSizes();
 
         //If the button is Pokemon, set the backGround to pokemon
-        if(btnisPokemon()){
+        if(btnisPokemon(row,col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
             Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
@@ -99,12 +105,28 @@ public class GameScreen extends AppCompatActivity {
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
         }
 
+        //Update Button Numbers
+        //updateButtonNumbers();
+        //Display Button Numbers
 
     }
 
+
     //TODO: MAKE the function where it knows if it is pokemon or not
-    private boolean btnisPokemon() {
+    private boolean btnisPokemon(int row, int col) {
+
+        PrintTable.print(table,NUM_ROWS,NUM_COLS);
+
+        //If the table has Pokemon, return true;
+        if(table[row][col] == -1){
+            return true;
+        }
         return false;
+    }
+
+    //TODO: Make function where it sets the number for all the clicked buttons
+    private void updateButtonNumbers() {
+
     }
 
     private void lockButtonSizes() {
