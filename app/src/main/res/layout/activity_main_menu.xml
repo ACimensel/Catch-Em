@@ -5,22 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainMenu"
-    android:background="@drawable/pokemon_main_menu_image2"
+    android:background="@drawable/welcome_screen_bg"
     >
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="4"
+        android:shadowRadius="1"
+        android:text="@string/game_title"
+        android:textAllCaps="true"
+        android:textColor="#FFC107"
+        android:textScaleX="1.1"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
-        android:layout_width="142dp"
-        android:layout_height="204dp"
-        android:layout_marginStart="76dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657">
+        app:layout_constraintVertical_bias=".8">
 
         <Button
             android:id="@+id/btnStartGame"
-            android:layout_width="139dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/start_game" />
 
@@ -28,15 +47,22 @@
             android:id="@+id/btnOptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:text="@string/options" />
 
         <Button
             android:id="@+id/btnHelp"
-            android:layout_width="139dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:text="@string/help" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
