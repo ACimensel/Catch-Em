@@ -1,94 +1,92 @@
 package model;
 
+import android.util.Log;
+
 import java.util.Random;
 
 public class GameState {
-    //Got the idea from https://www.youtube.com/watch?v=nORt4szAmkI
+
     GameData gameData = GameData.getInstance();
     private static final int NUM_ROWS = 4;
     private static final int NUM_COLS = 5;
     private static int NUM_POKEMONS = 10 ;
 
+    int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
+    boolean [][] isButtonClicked = new boolean[NUM_ROWS][NUM_COLS];
+    boolean [][] isButtonScanned = new boolean[NUM_ROWS][NUM_COLS];
 
-    //Create Table
-    //private int [][] table = new int [NUM_ROWS][NUM_COLS];
+    int countScan = 0;
 
     //Create the table and populate Pokemons
-    public int[][] createTable(){
+    public void setTable(){
+        //Got the idea from https://www.youtube.com/watch?v=nORt4szAmkI
         // Random for generating numbers
         Random r = new Random();
 
-        int [][] table = new int [NUM_ROWS][NUM_COLS];
-        for(int row = 0; row < NUM_ROWS; row ++){
-            table[row] = new int [NUM_COLS];
-        }
         //Populate Pokemons
         while(NUM_POKEMONS > 0){
             int row = r.nextInt(NUM_ROWS);
             int col = r.nextInt(NUM_COLS);
 
             //-1 is the Pokemon
-            if(table[row][col] != -1){
-                table[row][col] = -1;
+            if(tableForPokemon[row][col] != -1){
+                tableForPokemon[row][col] = -1;
                 NUM_POKEMONS--;
             }
         }
-        //calculateTableValues(table);
-        return table;
     }
 
-    public void calculateTableValues( int[][] table ){
-        for(int row = 0; row < NUM_ROWS; row++){
-            for(int col = 0; col < NUM_COLS; col++){
-                table[row][col] = getPokemonNumber(table, row, col);
-            }
-        }
+    public boolean getIsButtonClicked(int row, int col){
+        //keep track of the buttons that are clicked
+        return isButtonClicked[row][col];
     }
 
-    // this is for the first time. Pokemon needs to have -1 value in order to be used in UI
-    public int getPokemonNumber(int[][] table, int row, int col){
-        //If they are Pokemon
-        if(table[row][col] == -1){
-            return -1;
-        }
+    public void setIsButtonClicked(int row, int col){
+        isButtonClicked[row][col] = true;
+    }
 
+    public int updatePokemonNumber(int row, int col){
         int count = 0;
         //Check its column
         for(int i = 0; i < NUM_ROWS ; i ++){
-            if(table[i][col] == -1 ){
-                count++;
+            if(isButtonPokemon(i,col)){
+                if(!isButtonClicked[i][col]) { //pokemon is not clicked yet
+                    count++;
+                }
             }
+
         }
         //Check its row
         for(int i = 0; i < NUM_COLS; i++){
-            if(table[row][i] == -1){
-                count++;
+            if(isButtonPokemon(row,i)){
+                if(!isButtonClicked[row][i]) {
+                    count++;
+                }
             }
         }
-
         return count;
     }
 
-    public int updatePokemonNumber(int[][] table, int row, int col){
-        int count = 0;
-        //Check its column
-        for(int i = 0; i < NUM_ROWS ; i ++){
-            if(table[i][col] == -1 ){
-                count++;
-            }
-        }
-        //Check its row
-        for(int i = 0; i < NUM_COLS; i++){
-            if(table[row][i] == -1){
-                count++;
-            }
-        }
-        //If the clicked one is Pokemon
-        if(table[row][col] == -1){
-            count-= 2;
-        }
+    public int getCountScan() {
+        return countScan;
+    }
 
-        return count;
+    public void calculateScan() {
+        //The first time you pick Pokemon, it shouldn't be scanned
+
+
+        //If you see
+
+    }
+
+    public boolean isButtonPokemon(int row, int col) {
+        PrintTable.print(tableForPokemon,NUM_ROWS,NUM_COLS);
+
+        //If the table has Pokemon, return true;
+        if(tableForPokemon[row][col] == -1){
+            return true;
+        }
+        return false;
     }
 
 }

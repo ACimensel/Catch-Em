@@ -31,7 +31,7 @@ public class GameScreen extends AppCompatActivity {
 
     //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
     GameState gameState = new GameState();
-    int[][] table = gameState.createTable();
+
 
     Button buttons[][] = new Button[NUM_ROWS][NUM_COLS];
 
@@ -47,6 +47,7 @@ public class GameScreen extends AppCompatActivity {
 
         //TODO: Separate the game logic with the UI
         populateButtons();
+
     }
 
 
@@ -75,15 +76,17 @@ public class GameScreen extends AppCompatActivity {
 
                 //set text size in button
                 btn.setTextSize(50);
+                //set text color
+                btn.setTextColor(getApplication().getResources().getColor(R.color.red));
+
+
 
                 //when the button is clicked,
                 btn.setOnClickListener(new View.OnClickListener() {
-
                     @Override
                     public void onClick(View view) {
                         populatePokemon(FINAL_ROW, FINAL_COL);
                         scanPokemon(FINAL_ROW, FINAL_COL);
-
                     }
                 });
 
@@ -97,53 +100,61 @@ public class GameScreen extends AppCompatActivity {
     private void scanPokemon(int row, int col) {
         Button btn = buttons[row][col];
 
-
-        //Display Button Numbers
-        if(table[row][col] != -1 ) {
-            btn.setText("" + gameState.getPokemonNumber(table, row, col));
+        //Checking if the button is already scanned -> Do not Scan again
+        if(gameState.getIsButtonClicked(row,col)){
+            return;
         }
 
-        btn.setTextColor(getApplication().getResources().getColor(R.color.red));
+        //The first time the pokemon is clicked, it shouldn't be scanned
+        /**if(!gameState.getIsButtonClicked(row, col)){
+            if(gameState.isButtonPokemon(row, col)) {
+                return;
+            }
+        }*/
 
+        //Let gameState know that the buttons is clicked
+        gameState.setIsButtonClicked(row,col);
 
+        Toast.makeText(this, "btn is scanned",Toast.LENGTH_SHORT).show();
+
+        //Display Clicked(Scanned) Button Numbers
+        displayNumbers();
+
+    }
+
+    private void displayNumbers() {
+        for(int row = 0; row < NUM_ROWS; row++){
+            for(int col = 0; col < NUM_COLS; col++){
+                if(gameState.getIsButtonClicked(row,col)) {
+                    buttons[row][col].setText("" + gameState.updatePokemonNumber(row, col));
+                }
+            }
+        }
     }
 
 
     private void populatePokemon(int row, int col) {
-        Toast.makeText(this, "btn clicked",Toast.LENGTH_SHORT).show();
+
         Button btn = buttons[row][col];
 
         //Lock Button Sizes:
         lockButtonSizes();
 
+        //Set the pokemon table
+        gameState.setTable();
+
         //If the button is Pokemon, set the backGround to pokemon
-        if(btnisPokemon(row,col)){
+        if(gameState.isButtonPokemon(row,col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
             Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
-
         }
-    }
-
-
-    //TODO: MAKE the function where it knows if it is pokemon or not
-    private boolean btnisPokemon(int row, int col) {
-        PrintTable.print(table,NUM_ROWS,NUM_COLS);
-
-        //If the table has Pokemon, return true;
-        if(table[row][col] == -1){
-            return true;
-        }
-        return false;
-    }
-
-    //TODO: Make function where it sets the number for all the clicked buttons
-    private void updateButtonNumbers(Button btn, int row, int col) {
 
     }
+
 
     private void lockButtonSizes() {
         for(int row = 0; row < NUM_ROWS; row++){
