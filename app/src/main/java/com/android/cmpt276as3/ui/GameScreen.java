@@ -73,11 +73,17 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
+                //set text size in button
+                btn.setTextSize(50);
+
                 //when the button is clicked,
                 btn.setOnClickListener(new View.OnClickListener() {
+
                     @Override
                     public void onClick(View view) {
-                        gridButtonClicked(FINAL_ROW, FINAL_COL);
+                        populatePokemon(FINAL_ROW, FINAL_COL);
+                        scanPokemon(FINAL_ROW, FINAL_COL);
+
                     }
                 });
 
@@ -87,8 +93,23 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
+    //TODO: Figure out how to count if I had clicked on the button previously or not
+    private void scanPokemon(int row, int col) {
+        Button btn = buttons[row][col];
 
-    private void gridButtonClicked(int row, int col) {
+
+        //Display Button Numbers
+        if(table[row][col] != -1 ) {
+            btn.setText("" + gameState.getPokemonNumber(table, row, col));
+        }
+
+        btn.setTextColor(getApplication().getResources().getColor(R.color.red));
+
+
+    }
+
+
+    private void populatePokemon(int row, int col) {
         Toast.makeText(this, "btn clicked",Toast.LENGTH_SHORT).show();
         Button btn = buttons[row][col];
 
@@ -103,18 +124,13 @@ public class GameScreen extends AppCompatActivity {
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
+
         }
-
-        //Update Button Numbers
-        //updateButtonNumbers();
-        //Display Button Numbers
-
     }
 
 
     //TODO: MAKE the function where it knows if it is pokemon or not
     private boolean btnisPokemon(int row, int col) {
-
         PrintTable.print(table,NUM_ROWS,NUM_COLS);
 
         //If the table has Pokemon, return true;
@@ -125,7 +141,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     //TODO: Make function where it sets the number for all the clicked buttons
-    private void updateButtonNumbers() {
+    private void updateButtonNumbers(Button btn, int row, int col) {
 
     }
 

@@ -33,8 +33,7 @@ public class GameState {
                 NUM_POKEMONS--;
             }
         }
-
-        calculateTableValues(table);
+        //calculateTableValues(table);
         return table;
     }
 
@@ -46,9 +45,9 @@ public class GameState {
         }
     }
 
+    // this is for the first time. Pokemon needs to have -1 value in order to be used in UI
     public int getPokemonNumber(int[][] table, int row, int col){
         //If they are Pokemon
-        //TODO: I don't know if this is needed
         if(table[row][col] == -1){
             return -1;
         }
@@ -70,5 +69,26 @@ public class GameState {
         return count;
     }
 
+    public int updatePokemonNumber(int[][] table, int row, int col){
+        int count = 0;
+        //Check its column
+        for(int i = 0; i < NUM_ROWS ; i ++){
+            if(table[i][col] == -1 ){
+                count++;
+            }
+        }
+        //Check its row
+        for(int i = 0; i < NUM_COLS; i++){
+            if(table[row][i] == -1){
+                count++;
+            }
+        }
+        //If the clicked one is Pokemon
+        if(table[row][col] == -1){
+            count-= 2;
+        }
+
+        return count;
+    }
 
 }
