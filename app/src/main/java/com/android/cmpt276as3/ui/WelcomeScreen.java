@@ -15,6 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class WelcomeScreen extends AppCompatActivity {
     private static final String TAG = "WelcomeScreen";
     private GifImageView gif;
+    private boolean isButtonClicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +25,22 @@ public class WelcomeScreen extends AppCompatActivity {
 
         gif = findViewById(R.id.loading_pokeball);
 
-        Button butMain = findViewById(R.id.button_gotomain);
-        butMain.setOnClickListener(new View.OnClickListener() {
+        final Button buttonGoMain = findViewById(R.id.button_gotomain);
+        buttonGoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gif.setAlpha(1f);
+                if(!isButtonClicked) {
+                    isButtonClicked = true;
+                    gif.setAlpha(1f);
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent i = MainMenu.makeLaunchIntent(WelcomeScreen.this);
-                        startActivity(i);
-                    }
-                },2500);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = MainMenu.makeLaunchIntent(WelcomeScreen.this);
+                            startActivity(i);
+                        }
+                    }, 2000);
+                }
             }
         });
     }
@@ -46,5 +50,6 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onStart();
 
         gif.setAlpha(0f);
+        isButtonClicked = false;
     }
 }
