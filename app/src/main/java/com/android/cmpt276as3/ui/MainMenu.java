@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.android.cmpt276as3.R;
+import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class MainMenu extends AppCompatActivity {
     private static final String TAG = "MainMenu";
-    private OptionsManager optManager;
 
     public static Intent makeLaunchIntent(Context context) {
         return new Intent(context, MainMenu.class);
@@ -29,8 +29,10 @@ public class MainMenu extends AppCompatActivity {
         setUPOptionsButton();
         setUpHelpButton();
 
-        optManager = OptionsManager.getInstance();
+        OptionsManager optManager = OptionsManager.getInstance();
         optManager.update(this);
+
+        MusicPlayer.play(getApplicationContext());
     }
 
     private void setUpStartGameButton() {
@@ -67,10 +69,5 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
-
-
-
-
 }
