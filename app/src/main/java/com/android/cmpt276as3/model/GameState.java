@@ -1,7 +1,5 @@
 package com.android.cmpt276as3.model;
 
-import android.util.Log;
-
 import java.util.Random;
 
 public class GameState {

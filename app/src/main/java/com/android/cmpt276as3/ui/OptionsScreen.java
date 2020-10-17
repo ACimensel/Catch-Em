@@ -130,19 +130,16 @@ public class OptionsScreen extends AppCompatActivity {
 
     static public int getNumRows(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        // TODO: Change default value
-        return prefs.getInt("num_rows", 4);
+        return prefs.getInt("num_rows", context.getResources().getInteger(R.integer.default_num_rows));
     }
 
     static public int getNumCols(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        // TODO: Change default value
-        return prefs.getInt("num_cols", 6);
+        return prefs.getInt("num_cols", context.getResources().getInteger(R.integer.default_num_cols));
     }
 
     static public int getNumWildPokemon(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        // TODO: Change default value
-        return prefs.getInt("num_wild_pokemon", 6);
+        return prefs.getInt("num_wild_pokemon", context.getResources().getInteger(R.integer.default_num_wild_pokemon));
     }
 }

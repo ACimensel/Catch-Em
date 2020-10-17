@@ -1,4 +1,4 @@
-package model;
+package com.android.cmpt276as3.model;
 
 public class Cell {
     private boolean isPokemon;
