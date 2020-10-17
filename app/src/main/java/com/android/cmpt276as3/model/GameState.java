@@ -2,7 +2,7 @@ package com.android.cmpt276as3.model;
 
 import java.util.Random;
 
-import model.PrintTable;
+
 
 public class GameState {
 
@@ -16,7 +16,7 @@ public class GameState {
     boolean [][] scannedButtons = new boolean[NUM_ROWS][NUM_COLS];
     //make another value
 
-    int numberOfPokemonLeft = NUM_POKEMONS;
+    int numberOfPokemonFound = 0;
     int countScan = 0;
 
     //Create the table and populate Pokemons
@@ -82,16 +82,16 @@ public class GameState {
         return countScan;
     }
 
-    public int getNumberOfPokemonLeft() {
-        numberOfPokemonLeft = 0;
+    public int getNumberOfPokemonFound() {
+        numberOfPokemonFound = 0;
         for(int row = 0; row < NUM_ROWS ; row++){
             for(int col = 0; col < NUM_COLS; col++){
                 if(isButtonPokemon(row,col) && isButtonClicked(row,col)){
-                    numberOfPokemonLeft++;
+                    numberOfPokemonFound++;
                 }
             }
         }
-        return numberOfPokemonLeft;
+        return numberOfPokemonFound;
     }
 
 
