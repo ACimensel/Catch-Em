@@ -12,10 +12,12 @@ public class GameState {
     private static int NUM_POKEMONS = 10 ;
 
     int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
-    boolean [][] isButtonClicked = new boolean[NUM_ROWS][NUM_COLS];
-    boolean [][] isButtonScanned = new boolean[NUM_ROWS][NUM_COLS];
+    boolean [][] clickedButtons = new boolean[NUM_ROWS][NUM_COLS];
+    boolean [][] scannedButtons = new boolean[NUM_ROWS][NUM_COLS];
+    int numberOfPokemonLeft = NUM_POKEMONS;
 
     int countScan = 0;
+
 
     //Create the table and populate Pokemons
     public void setTable(){
@@ -36,13 +38,13 @@ public class GameState {
         }
     }
 
-    public boolean getIsButtonClicked(int row, int col){
+    public boolean isButtonClicked(int row, int col){
         //keep track of the buttons that are clicked
-        return isButtonClicked[row][col];
+        return clickedButtons[row][col];
     }
 
-    public void setIsButtonClicked(int row, int col){
-        isButtonClicked[row][col] = true;
+    public void setClickedButtons(int row, int col){
+        clickedButtons[row][col] = true;
     }
 
     public int updatePokemonNumber(int row, int col){
@@ -50,7 +52,7 @@ public class GameState {
         //Check its column
         for(int i = 0; i < NUM_ROWS ; i ++){
             if(isButtonPokemon(i,col)){
-                if(!isButtonClicked[i][col]) { //pokemon is not clicked yet
+                if(!isButtonClicked(i,col)) { //pokemon is not clicked yet
                     count++;
                 }
             }
@@ -59,7 +61,7 @@ public class GameState {
         //Check its row
         for(int i = 0; i < NUM_COLS; i++){
             if(isButtonPokemon(row,i)){
-                if(!isButtonClicked[row][i]) {
+                if(!isButtonClicked(row,i)) {
                     count++;
                 }
             }
@@ -71,13 +73,33 @@ public class GameState {
         return countScan;
     }
 
-    public void calculateScan() {
-        //The first time you pick Pokemon, it shouldn't be scanned
+    public void calculateScan(int row, int col) {
+        //Case 1 : User press on a grass without Pokemon
+        if(!isButtonPokemon(row,col) && !isButtonClicked(row,col)){
+            countScan ++;
+        }
 
+        //Case 2: User press on a grass with Pokemon for the first time.
+        //Shouldn't scan it
+        if(isButtonPokemon(row,col) && !isButtonClicked(row, col)){
 
-        //If you see
+        }
+
+        //Case 3: User press on Pokemon
+        if(isButtonPokemon(row,col) && isButtonClicked(row,col) && !isButtonScanned(row, col)){
+            countScan ++;
+        }
 
     }
+
+    public boolean isButtonScanned(int row, int col) {
+        return scannedButtons[row][col];
+    }
+
+    public void setScannedButtons(int row, int col) {
+        scannedButtons[row][col] = true;
+    }
+
 
     public boolean isButtonPokemon(int row, int col) {
         PrintTable.print(tableForPokemon,NUM_ROWS,NUM_COLS);

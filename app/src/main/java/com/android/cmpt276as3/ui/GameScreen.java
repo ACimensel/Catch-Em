@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.cmpt276as3.R;
@@ -47,6 +48,13 @@ public class GameScreen extends AppCompatActivity {
 
         //TODO: Separate the game logic with the UI
         populateButtons();
+
+        displayNumberOfPokemonsLeft();
+
+    }
+
+    private void displayNumberOfPokemonsLeft() {
+        TextView textNumberOfPokemonsLeft = (TextView) findViewById(R.id.textNumberOfPokemonLeft);
 
     }
 
@@ -98,22 +106,11 @@ public class GameScreen extends AppCompatActivity {
 
     //TODO: Figure out how to count if I had clicked on the button previously or not
     private void scanPokemon(int row, int col) {
-        Button btn = buttons[row][col];
-
-        //Checking if the button is already scanned -> Do not Scan again
-        if(gameState.getIsButtonClicked(row,col)){
-            return;
-        }
-
-        //The first time the pokemon is clicked, it shouldn't be scanned
-        /**if(!gameState.getIsButtonClicked(row, col)){
-            if(gameState.isButtonPokemon(row, col)) {
-                return;
-            }
-        }*/
+        //Calculate Scans
+        gameState.calculateScan(row,col);
 
         //Let gameState know that the buttons is clicked
-        gameState.setIsButtonClicked(row,col);
+        gameState.setClickedButtons(row,col);
 
         Toast.makeText(this, "btn is scanned",Toast.LENGTH_SHORT).show();
 
@@ -125,7 +122,7 @@ public class GameScreen extends AppCompatActivity {
     private void displayNumbers() {
         for(int row = 0; row < NUM_ROWS; row++){
             for(int col = 0; col < NUM_COLS; col++){
-                if(gameState.getIsButtonClicked(row,col)) {
+                if(gameState.isButtonClicked(row,col)) {
                     buttons[row][col].setText("" + gameState.updatePokemonNumber(row, col));
                 }
             }
