@@ -43,7 +43,6 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         this.setTitle(TAG);
 
-        optManager = OptionsManager.getInstance();
 
 
         populateButtons();
@@ -51,7 +50,6 @@ public class GameScreen extends AppCompatActivity {
         displayNumberOfPokemonsLeft();
         displayNumberOfTimeScanned();
 
-        setupCongratulationMessage();
     }
 
     private void setupCongratulationMessage() {
@@ -110,6 +108,8 @@ public class GameScreen extends AppCompatActivity {
                         scanPokemon(FINAL_ROW, FINAL_COL);
                         displayNumberOfPokemonsLeft();
                         displayNumberOfTimeScanned();
+
+                        setupCongratulationMessage();
                     }
                 });
 
