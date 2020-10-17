@@ -1,13 +1,12 @@
 package com.android.cmpt276as3.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.MusicPlayer;
@@ -17,7 +16,11 @@ public class MainMenu extends AppCompatActivity {
     private static final String TAG = "MainMenu";
 
     public static Intent makeLaunchIntent(Context context) {
-        return new Intent(context, MainMenu.class);
+        Intent intent = new Intent(context, MainMenu.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        return intent;
     }
 
     @Override
@@ -25,8 +28,9 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         this.setTitle(TAG);
+
         setUpStartGameButton();
-        setUPOptionsButton();
+        setUpOptionsButton();
         setUpHelpButton();
 
         OptionsManager optManager = OptionsManager.getInstance();
@@ -47,7 +51,7 @@ public class MainMenu extends AppCompatActivity {
         });
     }
 
-    private void setUPOptionsButton() {
+    private void setUpOptionsButton() {
         Button btn= findViewById(R.id.btnOptions);
 
         btn.setOnClickListener(new View.OnClickListener() {
