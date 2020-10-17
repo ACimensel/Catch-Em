@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +30,7 @@ public class GameScreen extends AppCompatActivity {
     GameState gameState = new GameState();
 
 
-    Button buttons[][] = new Button[NUM_ROWS][NUM_COLS];
+    Button[][] buttons = new Button[NUM_ROWS][NUM_COLS];
 
     public static Intent makeLaunchIntent(Context context) {
         return new Intent(context, GameScreen.class);
@@ -70,7 +69,7 @@ public class GameScreen extends AppCompatActivity {
                 final int FINAL_COL = col;
 
                 Button btn = new Button(this);
-                btn.setBackgroundResource(R.drawable.tall_grass);
+                btn.setBackgroundResource(R.drawable.tiletall_grass);
                 btn.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -90,7 +89,7 @@ public class GameScreen extends AppCompatActivity {
                 }
                 btn.setTextSize( textSize);
                 //set text color
-                btn.setTextColor(getApplication().getResources().getColor(R.color.red));
+                btn.setTextColor(getApplication().getResources().getColor(R.color.red, getTheme()));
 
                 //when the button is clicked,
                 btn.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +117,7 @@ public class GameScreen extends AppCompatActivity {
     private void displayNumberOfPokemonsLeft() {
         int numberOfPokemonLeft = gameState.getNumberOfPokemonLeft();
         TextView textNumberOfPokemonsLeft = (TextView) findViewById(R.id.textNumberOfPokemonLeft);
-        textNumberOfPokemonsLeft.setText("Found " + numberOfPokemonLeft + " of " + NUM_POKEMONS + "Pokemons");
+        textNumberOfPokemonsLeft.setText("Found " + numberOfPokemonLeft + " of " + NUM_POKEMONS + " Pokemon");
     }
 
     //TODO: Figure out how to count if I had clicked on the button previously or not
@@ -160,7 +159,7 @@ public class GameScreen extends AppCompatActivity {
         if(gameState.isButtonPokemon(row,col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.rand_eevee);
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));

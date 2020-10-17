@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.HelpScreen"
-    android:background="@drawable/unown"
+    android:background="@drawable/bg_help"
     >
 
     <TextView

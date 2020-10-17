@@ -2,8 +2,6 @@ package com.android.cmpt276as3.model;
 
 import java.util.Random;
 
-import model.PrintTable;
-
 public class GameState {
 
     private OptionsManager optManager = OptionsManager.getInstance();
@@ -119,10 +117,7 @@ public class GameState {
         PrintTable.print(tableForPokemon,NUM_ROWS,NUM_COLS);
 
         //If the table has Pokemon, return true;
-        if(tableForPokemon[row][col] == -1){
-            return true;
-        }
-        return false;
+        return tableForPokemon[row][col] == -1;
     }
 
 }
