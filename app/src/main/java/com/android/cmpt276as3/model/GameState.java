@@ -7,7 +7,7 @@ public class GameState {
     private OptionsManager optManager = OptionsManager.getInstance();
     private final int NUM_ROWS = optManager.getGameBoardRows();
     private final int NUM_COLS = optManager.getGameBoardCols();
-    private int NUM_POKEMONS = optManager.getNumWildPokemon();
+    private int NUM_POKEMON = optManager.getNumWildPokemon();
 
     int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
     boolean [][] clickedButtons = new boolean[NUM_ROWS][NUM_COLS];
@@ -24,14 +24,14 @@ public class GameState {
         Random r = new Random();
 
         //Populate Pokemons
-        while(NUM_POKEMONS > 0){
+        while(NUM_POKEMON > 0){
             int row = r.nextInt(NUM_ROWS);
             int col = r.nextInt(NUM_COLS);
 
             //-1 is the Pokemon
             if(tableForPokemon[row][col] != -1){
                 tableForPokemon[row][col] = -1;
-                NUM_POKEMONS--;
+                NUM_POKEMON--;
             }
         }
     }

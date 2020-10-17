@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -26,7 +25,7 @@ public class GameScreen extends AppCompatActivity {
     private OptionsManager optManager = OptionsManager.getInstance();
     private final int NUM_ROWS = optManager.getGameBoardRows();
     private final int NUM_COLS = optManager.getGameBoardCols();
-    private final int NUM_POKEMONS = optManager.getNumWildPokemon();
+    private final int NUM_POKEMON = optManager.getNumWildPokemon();
 
     //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
     GameState gameState = new GameState();
@@ -56,7 +55,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void setupCongratulationMessage() {
-        if(gameState.getNumberOfPokemonFound() == NUM_POKEMONS){
+        if(gameState.getNumberOfPokemonFound() == NUM_POKEMON){
             FragmentManager manager = getSupportFragmentManager();
             CongratulationMessageFragment dialog = new CongratulationMessageFragment();
             dialog.show(manager, "CongratulationMessageDialog");
@@ -81,7 +80,7 @@ public class GameScreen extends AppCompatActivity {
                 final int FINAL_COL = col;
 
                 Button btn = new Button(this);
-                btn.setBackgroundResource(R.drawable.tiletall_grass);
+                btn.setBackgroundResource(R.drawable.tile_tall_grass);
                 btn.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -129,7 +128,7 @@ public class GameScreen extends AppCompatActivity {
     private void displayNumberOfPokemonsLeft() {
         int numberOfPokemonFound = gameState.getNumberOfPokemonFound();
         TextView textNumberOfPokemonsFound = (TextView) findViewById(R.id.textNumberOfPokemonFound);
-        textNumberOfPokemonsFound.setText("Found " + numberOfPokemonFound + " of " + NUM_POKEMONS + " Pokemons");
+        textNumberOfPokemonsFound.setText("Found " + numberOfPokemonFound + " of " + NUM_POKEMON + " Pokemons");
     }
 
     //TODO: Figure out how to count if I had clicked on the button previously or not
@@ -171,7 +170,7 @@ public class GameScreen extends AppCompatActivity {
         if(gameState.isButtonPokemon(row,col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.rand_charmander);
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
