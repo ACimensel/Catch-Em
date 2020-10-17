@@ -1,12 +1,12 @@
 package com.android.cmpt276as3.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.cmpt276as3.R;
 
@@ -39,7 +39,7 @@ public class WelcomeScreen extends AppCompatActivity {
                             Intent i = MainMenu.makeLaunchIntent(WelcomeScreen.this);
                             startActivity(i);
                         }
-                    }, 2000);
+                    }, 1000);
                 }
             }
         });
