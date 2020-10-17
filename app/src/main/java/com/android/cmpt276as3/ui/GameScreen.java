@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.cmpt276as3.R;
@@ -22,12 +23,18 @@ import com.android.cmpt276as3.model.OptionsManager;
 
 import java.util.Random;
 
+import model.GameState;
+import model.PrintTable;
+
 public class GameScreen extends AppCompatActivity {
     private static final String TAG = "GameScreen";
     private OptionsManager optManager;
     private static final int NUM_ROWS = 4;
-    private static final int NUM_COLS = 5;
-    private static int NUM_POKEMONS = 10 ;
+    private static final int NUM_COLS = 8;
+
+    //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
+    GameState gameState = new GameState();
+
 
     Button buttons[][] = new Button[NUM_ROWS][NUM_COLS];
 
@@ -45,6 +52,14 @@ public class GameScreen extends AppCompatActivity {
 
         //TODO: Separate the game logic with the UI
         populateButtons();
+
+        displayNumberOfPokemonsLeft();
+
+    }
+
+    private void displayNumberOfPokemonsLeft() {
+        TextView textNumberOfPokemonsLeft = (TextView) findViewById(R.id.textNumberOfPokemonLeft);
+
     }
 
 
@@ -71,11 +86,17 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
+                //set text size in button
+                btn.setTextSize(50);
+                //set text color
+                btn.setTextColor(getApplication().getResources().getColor(R.color.red));
+
                 //when the button is clicked,
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        gridButtonClicked(FINAL_ROW, FINAL_COL);
+                        populatePokemon(FINAL_ROW, FINAL_COL);
+                        scanPokemon(FINAL_ROW, FINAL_COL);
                     }
                 });
 
@@ -85,16 +106,43 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
+    //TODO: Figure out how to count if I had clicked on the button previously or not
+    private void scanPokemon(int row, int col) {
+        //Calculate Scans
+        gameState.calculateScan(row,col);
 
-    private void gridButtonClicked(int row, int col) {
-        Toast.makeText(this, "btn clicked",Toast.LENGTH_SHORT).show();
+        //Let gameState know that the buttons is clicked
+        gameState.setClickedButtons(row,col);
+
+        Toast.makeText(this, "btn is scanned",Toast.LENGTH_SHORT).show();
+
+        //Display Clicked(Scanned) Button Numbers
+        displayNumbers();
+
+    }
+
+    private void displayNumbers() {
+        for(int row = 0; row < NUM_ROWS; row++){
+            for(int col = 0; col < NUM_COLS; col++){
+                if(gameState.isButtonClicked(row,col)) {
+                    buttons[row][col].setText("" + gameState.updatePokemonNumber(row, col));
+                }
+            }
+        }
+    }
+
+    private void populatePokemon(int row, int col) {
+
         Button btn = buttons[row][col];
 
         //Lock Button Sizes:
         lockButtonSizes();
 
+        //Set the pokemon table
+        gameState.setTable();
+
         //If the button is Pokemon, set the backGround to pokemon
-        if(btnisPokemon()){
+        if(gameState.isButtonPokemon(row,col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
             Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
@@ -102,14 +150,8 @@ public class GameScreen extends AppCompatActivity {
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
         }
-
-
     }
 
-    //TODO: MAKE the function where it knows if it is pokemon or not
-    private boolean btnisPokemon() {
-        return false;
-    }
 
     private void lockButtonSizes() {
         for(int row = 0; row < NUM_ROWS; row++){
