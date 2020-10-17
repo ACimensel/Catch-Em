@@ -22,9 +22,10 @@ import com.android.cmpt276as3.model.OptionsManager;
 
 public class GameScreen extends AppCompatActivity {
     private static final String TAG = "GameScreen";
-    private OptionsManager optManager;
-    private static final int NUM_ROWS = 4;
-    private static final int NUM_COLS = 8;
+    private OptionsManager optManager = OptionsManager.getInstance();
+    private final int NUM_ROWS = optManager.getGameBoardRows();
+    private final int NUM_COLS = optManager.getGameBoardCols();
+    private final int NUM_POKEMONS = optManager.getNumWildPokemon();
 
     //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
     GameState gameState = new GameState();
@@ -44,16 +45,11 @@ public class GameScreen extends AppCompatActivity {
 
         optManager = OptionsManager.getInstance();
 
-        //TODO: Separate the game logic with the UI
+
         populateButtons();
 
         displayNumberOfPokemonsLeft();
-
-    }
-
-    private void displayNumberOfPokemonsLeft() {
-        TextView textNumberOfPokemonsLeft = (TextView) findViewById(R.id.textNumberOfPokemonLeft);
-
+        displayNumberOfTimeScanned();
     }
 
 
@@ -80,8 +76,19 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
+                //TODO: Auto resize the text in the button
                 //set text size in button
-                btn.setTextSize(50);
+                int textSize = 0;
+                if(NUM_COLS*NUM_ROWS < 25){
+                    textSize = 50;
+                }
+                else if(NUM_COLS*NUM_ROWS < 50){
+                    textSize = 45;
+                }
+                else if(NUM_COLS*NUM_ROWS < 100){
+                    textSize = 30;
+                }
+                btn.setTextSize( textSize);
                 //set text color
                 btn.setTextColor(getApplication().getResources().getColor(R.color.red));
 
@@ -91,6 +98,8 @@ public class GameScreen extends AppCompatActivity {
                     public void onClick(View view) {
                         populatePokemon(FINAL_ROW, FINAL_COL);
                         scanPokemon(FINAL_ROW, FINAL_COL);
+                        displayNumberOfPokemonsLeft();
+                        displayNumberOfTimeScanned();
                     }
                 });
 
@@ -100,15 +109,27 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
+    private void displayNumberOfTimeScanned() {
+        int numberOfTimeScanned = gameState.getCountScan();
+        TextView textNumberOfTimeScanned = (TextView) findViewById(R.id.textNumberOfTimesScanned);
+        textNumberOfTimeScanned.setText("# Scans Used: " + numberOfTimeScanned);
+    }
+
+    private void displayNumberOfPokemonsLeft() {
+        int numberOfPokemonLeft = gameState.getNumberOfPokemonLeft();
+        TextView textNumberOfPokemonsLeft = (TextView) findViewById(R.id.textNumberOfPokemonLeft);
+        textNumberOfPokemonsLeft.setText("Found " + numberOfPokemonLeft + " of " + NUM_POKEMONS + "Pokemons");
+    }
+
     //TODO: Figure out how to count if I had clicked on the button previously or not
     private void scanPokemon(int row, int col) {
         //Calculate Scans
-        gameState.calculateScan(row,col);
 
+        //gameState.calculateScan(row,col);
+
+        gameState.setScannedButtons(row,col);
         //Let gameState know that the buttons is clicked
         gameState.setClickedButtons(row,col);
-
-        Toast.makeText(this, "btn is scanned",Toast.LENGTH_SHORT).show();
 
         //Display Clicked(Scanned) Button Numbers
         displayNumbers();
@@ -118,7 +139,7 @@ public class GameScreen extends AppCompatActivity {
     private void displayNumbers() {
         for(int row = 0; row < NUM_ROWS; row++){
             for(int col = 0; col < NUM_COLS; col++){
-                if(gameState.isButtonClicked(row,col)) {
+                if(gameState.isButtonScanned(row,col)) {
                     buttons[row][col].setText("" + gameState.updatePokemonNumber(row, col));
                 }
             }
