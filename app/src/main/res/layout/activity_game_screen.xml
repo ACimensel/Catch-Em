@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GameScreen">
+    tools:context=".ui.GameScreen"
+    >
+
+    <ImageView
+        android:background="@drawable/grass"
+        android:alpha="0.7"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
 
     <TextView
         android:id="@+id/textNumberOfPokemonLeft"
