@@ -4,12 +4,14 @@ import android.util.Log;
 
 import java.util.Random;
 
+import model.PrintTable;
+
 public class GameState {
 
-    GameData gameData = GameData.getInstance();
-    private static final int NUM_ROWS = 4;
-    private static final int NUM_COLS = 8;
-    private static int NUM_POKEMONS = 16;
+    private OptionsManager optManager = OptionsManager.getInstance();
+    private final int NUM_ROWS = optManager.getGameBoardRows();
+    private final int NUM_COLS = optManager.getGameBoardCols();
+    private int NUM_POKEMONS = optManager.getNumWildPokemon();
 
     int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
     boolean [][] clickedButtons = new boolean[NUM_ROWS][NUM_COLS];
@@ -17,9 +19,7 @@ public class GameState {
     //make another value
 
     int numberOfPokemonLeft = NUM_POKEMONS;
-
     int countScan = 0;
-
 
     //Create the table and populate Pokemons
     public void setTable(){
@@ -71,36 +71,51 @@ public class GameState {
         return count;
     }
 
-    public int getCountScan() {
+
+    public int getCountScan(){
+        countScan = 0;
+        for(int row = 0; row < NUM_ROWS ; row++){
+            for(int col = 0; col < NUM_COLS; col++){
+                if(isButtonScanned(row,col)){
+                    countScan ++;
+                }
+            }
+        }
         return countScan;
     }
 
-    public void calculateScan(int row, int col) {
-        //Case 1 : User press on a grass without Pokemon
-        if(!isButtonPokemon(row,col) && !isButtonClicked(row,col)){
-            countScan ++;
+    public int getNumberOfPokemonLeft() {
+        numberOfPokemonLeft = 0;
+        for(int row = 0; row < NUM_ROWS ; row++){
+            for(int col = 0; col < NUM_COLS; col++){
+                if(isButtonPokemon(row,col) && isButtonClicked(row,col)){
+                    numberOfPokemonLeft++;
+                }
+            }
         }
-
-        //Case 2: User press on a grass with Pokemon for the first time.
-        //Shouldn't scan it
-        if(isButtonPokemon(row,col) && !isButtonClicked(row, col)){
-
-        }
-
-        //Case 3: User press on Pokemon
-        if(isButtonPokemon(row,col) && isButtonClicked(row,col) && !isButtonScanned(row, col)){
-            countScan ++;
-        }
-
+        return numberOfPokemonLeft;
     }
+
 
     public boolean isButtonScanned(int row, int col) {
         return scannedButtons[row][col];
     }
 
     public void setScannedButtons(int row, int col) {
-        scannedButtons[row][col] = true;
+        //if it is a grass
+        if(!isButtonPokemon(row,col)){
+            scannedButtons[row][col] = true;
+        }
+        //if it is a pokemon
+        if(isButtonPokemon(row,col)){
+            //if it is clicked, scan
+            if(isButtonClicked(row,col)){
+                scannedButtons[row][col] = true;
+            }
+            //if it is not clicked, don't scan
+        }
     }
+
 
     public boolean isButtonPokemon(int row, int col) {
         PrintTable.print(tableForPokemon,NUM_ROWS,NUM_COLS);
