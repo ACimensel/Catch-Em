@@ -28,7 +28,7 @@ import model.PrintTable;
 public class GameScreen extends AppCompatActivity {
     private static final String TAG = "GameScreen";
     private static final int NUM_ROWS = 4;
-    private static final int NUM_COLS = 5;
+    private static final int NUM_COLS = 8;
 
     //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
     GameState gameState = new GameState();
@@ -87,8 +87,6 @@ public class GameScreen extends AppCompatActivity {
                 //set text color
                 btn.setTextColor(getApplication().getResources().getColor(R.color.red));
 
-
-
                 //when the button is clicked,
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -129,7 +127,6 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
-
     private void populatePokemon(int row, int col) {
 
         Button btn = buttons[row][col];
@@ -149,7 +146,6 @@ public class GameScreen extends AppCompatActivity {
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
         }
-
     }
 
 

@@ -8,12 +8,14 @@ public class GameState {
 
     GameData gameData = GameData.getInstance();
     private static final int NUM_ROWS = 4;
-    private static final int NUM_COLS = 5;
-    private static int NUM_POKEMONS = 10 ;
+    private static final int NUM_COLS = 8;
+    private static int NUM_POKEMONS = 16;
 
     int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
     boolean [][] clickedButtons = new boolean[NUM_ROWS][NUM_COLS];
     boolean [][] scannedButtons = new boolean[NUM_ROWS][NUM_COLS];
+    //make another value
+
     int numberOfPokemonLeft = NUM_POKEMONS;
 
     int countScan = 0;
@@ -99,7 +101,6 @@ public class GameState {
     public void setScannedButtons(int row, int col) {
         scannedButtons[row][col] = true;
     }
-
 
     public boolean isButtonPokemon(int row, int col) {
         PrintTable.print(tableForPokemon,NUM_ROWS,NUM_COLS);
