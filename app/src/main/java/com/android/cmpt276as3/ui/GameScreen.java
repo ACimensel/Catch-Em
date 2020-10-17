@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.GameState;
@@ -49,6 +51,16 @@ public class GameScreen extends AppCompatActivity {
 
         displayNumberOfPokemonsLeft();
         displayNumberOfTimeScanned();
+
+        setupCongratulationMessage();
+    }
+
+    private void setupCongratulationMessage() {
+        if(gameState.getNumberOfPokemonFound() == NUM_POKEMONS){
+            FragmentManager manager = getSupportFragmentManager();
+            CongratulationMessageFragment dialog = new CongratulationMessageFragment();
+            dialog.show(manager, "CongratulationMessageDialog");
+        }
     }
 
 
@@ -115,9 +127,9 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void displayNumberOfPokemonsLeft() {
-        int numberOfPokemonLeft = gameState.getNumberOfPokemonLeft();
-        TextView textNumberOfPokemonsLeft = (TextView) findViewById(R.id.textNumberOfPokemonLeft);
-        textNumberOfPokemonsLeft.setText("Found " + numberOfPokemonLeft + " of " + NUM_POKEMONS + " Pokemon");
+        int numberOfPokemonFound = gameState.getNumberOfPokemonFound();
+        TextView textNumberOfPokemonsFound = (TextView) findViewById(R.id.textNumberOfPokemonFound);
+        textNumberOfPokemonsFound.setText("Found " + numberOfPokemonFound + " of " + NUM_POKEMONS + " Pokemons");
     }
 
     //TODO: Figure out how to count if I had clicked on the button previously or not
@@ -159,7 +171,7 @@ public class GameScreen extends AppCompatActivity {
         if(gameState.isButtonPokemon(row,col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.rand_eevee);
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.charmander);
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
