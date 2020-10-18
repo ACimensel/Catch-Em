@@ -9,7 +9,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.cmpt276as3.R;
-import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class MainMenu extends AppCompatActivity {
@@ -36,7 +35,7 @@ public class MainMenu extends AppCompatActivity {
         OptionsManager optManager = OptionsManager.getInstance();
         optManager.update(this);
 
-        MusicPlayer.play(getApplicationContext());
+        //MusicPlayer.play(getApplicationContext());
     }
 
     private void setUpStartGameButton() {

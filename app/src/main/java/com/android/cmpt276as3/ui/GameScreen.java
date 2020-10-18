@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.GameState;
+import com.android.cmpt276as3.model.GetRandPokemonId;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class GameScreen extends AppCompatActivity {
@@ -43,13 +44,10 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         this.setTitle(TAG);
 
-
-
         populateButtons();
 
         displayNumberOfPokemonsLeft();
         displayNumberOfTimeScanned();
-
     }
 
     private void setupCongratulationMessage() {
@@ -157,7 +155,6 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void populatePokemon(int row, int col) {
-
         Button btn = buttons[row][col];
 
         //Lock Button Sizes:
@@ -167,10 +164,10 @@ public class GameScreen extends AppCompatActivity {
         gameState.setTable();
 
         //If the button is Pokemon, set the backGround to pokemon
-        if(gameState.isButtonPokemon(row,col)){
+        if(gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)){
             int newWidth = btn.getWidth();
             int newHeight = btn.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.rand_charmander);
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), GetRandPokemonId.getId());
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));

@@ -3,7 +3,6 @@ package com.android.cmpt276as3.model;
 import java.util.Random;
 
 public class GameState {
-
     private OptionsManager optManager = OptionsManager.getInstance();
     private final int NUM_ROWS = optManager.getGameBoardRows();
     private final int NUM_COLS = optManager.getGameBoardCols();

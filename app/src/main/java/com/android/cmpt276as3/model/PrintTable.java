@@ -3,6 +3,9 @@ package com.android.cmpt276as3.model;
 import android.util.Log;
 
 public class PrintTable {
+    private PrintTable() {
+    }
+
     public static void print(int [][] table, final int row, final int col){
         for(int x = 0; x < row ; x++){
             String printedText = " | ";
