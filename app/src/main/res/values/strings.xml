@@ -16,7 +16,7 @@
     <string name="numberOfPokemonFound">\Found %1d of %2d Pokemons \</string>
     <string name="updatePokemonNumbers">\ %1d \</string>
 
-    <string name="bg_welcome_link">bg_welcome - http://happyapple.us/minimalist-pokemon-wallpapers</string>
+    <string name="bg_welcome_link">bg_welcome (1st-4th Eevees) - http://happyapple.us/minimalist-pokemon-wallpapers</string>
     <string name="bg_main_link">bg_main - https://mobile-ar.reality.news/how-to/what-do-leaves-mean-pokemon-go-0172288/</string>
     <string name="bg_game_link">bg_game - https://www.pixilart.com/art/placeholder-grass-tile-b9177cda4f41c1b</string>
     <string name="bg_options_link">bg_options - https://i.imgur.com/pQIpSir.jpg</string>
@@ -32,6 +32,13 @@
     <string name="coursehome_link">https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home\n</string>
     <string name="citations_header">Citations for Used Resources:</string>
     <string name="instruction_description">1. As the game starts the game board will be filled with unexplored grass. \n\n2. The trainer then chooses a patch of grass to explore. If there is a wild Pokemon behind it, the trainer will catch the Pokemon, without the scanner triggering! \n\n3. When a patch of grass without a wild Pokemon is explored, the Pokedex will automatically scan the row and column of that grass. This tells the trainer the number of Pokemon left in the unexplored rows and columns of the scanned patch of grass. \n\n4. The trainer may also choose to manually scan a location where a wild Pokemon was already caught. This is done by tapping the location where you have caught the Pokemon again. \n\n5. Using the information from the Pokedex scans, the trainer can make informed choices about which patches of grass to explore. \n\n6. As the trainer finds more Pokemon, the Pokedex\'s revolutionary technology automatically updates the count of uncaught Pokemon in the patches of grass that were scanned. \n\n7. Trainer continues exploring until all Pokemon are found. \n\n8. Once the trainer has caught all wild Pokemon in the area, the game is over. The challenge is catching all the Pokemon with the fewest scans. This will make Professor Oak very proud!\n</string>
+    <string name="btn_start_img_link">btn_start_img - https://www.clipartmax.com/download/m2H7K9m2K9m2A0A0_awesome-pokemon-pictures-free-download-pikachu-icon-pikachu-png-icon/</string>
+    <string name="btn_option_img_link">btn_option_img - https://favpng.com/png_download/fqpvSFMW</string>
+    <string name="btn_help_img_link">bnt_help_img - https://www.pngaaa.com/detail/259213</string>
+
+
+    <string name="return_btn">Return</string>
+    <string name="congrats_you_caught_all_pokemons">Congrats! You Caught All Pokemons!</string>
 
 
 </resources>

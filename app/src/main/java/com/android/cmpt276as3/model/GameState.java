@@ -111,8 +111,6 @@ public class GameState {
     }
 
     public boolean isButtonPokemon(int row, int col) {
-        PrintTable.print(tableForPokemon,NUM_ROWS,NUM_COLS);
-
         //If the table has Pokemon, return true;
         return tableForPokemon[row][col] == -1;
     }
