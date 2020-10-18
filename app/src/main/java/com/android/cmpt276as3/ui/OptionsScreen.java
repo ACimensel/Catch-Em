@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -108,7 +109,7 @@ public class OptionsScreen extends AppCompatActivity {
     }
 
     private void setupSaveButton() {
-        Button saveButton = findViewById(R.id.save_options);
+        ImageButton saveButton = findViewById(R.id.save_options);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
