@@ -22,7 +22,7 @@ public class WelcomeScreen extends AppCompatActivity {
     private GifImageView gif;
     private boolean isButtonClicked = false;
 
-    Animation topAnim, bottomAnim;
+    Animation topAnim, bottomAnim, rightAnim, leftAnim;
     ImageView imgFirstEevee, imgSecondEevee, imgThirdEevee, imgFourthEevee;
 
     @Override
@@ -65,6 +65,9 @@ public class WelcomeScreen extends AppCompatActivity {
         //Animation
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        leftAnim = AnimationUtils.loadAnimation(this,R.anim.left_animation);
+        rightAnim = AnimationUtils.loadAnimation(this,R.anim.right_animation);
+
 
         //Hook
         imgFirstEevee = findViewById(R.id.imageFirstEevee);
@@ -72,10 +75,10 @@ public class WelcomeScreen extends AppCompatActivity {
         imgThirdEevee = findViewById(R.id.imageThirdEevee);
         imgFourthEevee = findViewById(R.id.imageFourthEevee);
 
-        imgFirstEevee.setAnimation(topAnim);
+        imgFirstEevee.setAnimation(leftAnim);
         imgSecondEevee.setAnimation(bottomAnim);
         imgThirdEevee.setAnimation(topAnim);
-        imgFourthEevee.setAnimation(bottomAnim);
+        imgFourthEevee.setAnimation(rightAnim);
     }
 
     @Override
