@@ -6,21 +6,34 @@ import android.media.MediaPlayer;
 import com.android.cmpt276as3.R;
 
 public class MusicPlayer {
-    private static Context appContext;
-    private static MediaPlayer ref;
+    private static MediaPlayer bgMusic;
+    private static MediaPlayer scanSound;
+    private static MediaPlayer pokemonSound;
 
     private MusicPlayer() {
     }
 
-    public static void play(Context context) {
-        if (appContext == null) {
-            appContext = context;
+    public static void playMusic(Context context) {
+        if (bgMusic == null) {
+            bgMusic = MediaPlayer.create(context, R.raw.battle_hall_music);
+            bgMusic.start();
+            bgMusic.setLooping(true);
         }
+    }
 
-        if (ref == null) {
-            ref = MediaPlayer.create(appContext, R.raw.battle_hall_music);
-            ref.start();
-            ref.setLooping(true);
+    public static void playScanSound(Context context) {
+        if (scanSound == null) {
+            scanSound = MediaPlayer.create(context, R.raw.scan_sound);
         }
+        scanSound.seekTo(0);
+        scanSound.start();
+    }
+
+    public static void playPokemonSound(Context context) {
+        if (pokemonSound == null) {
+            pokemonSound = MediaPlayer.create(context, R.raw.pokemon_sound);
+        }
+        pokemonSound.seekTo(0);
+        pokemonSound.start();
     }
 }

@@ -11,18 +11,17 @@ public class GameState {
     int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
     boolean [][] clickedButtons = new boolean[NUM_ROWS][NUM_COLS];
     boolean [][] scannedButtons = new boolean[NUM_ROWS][NUM_COLS];
-    //make another value
 
     int numberOfPokemonFound = 0;
     int countScan = 0;
 
     //Create the table and populate Pokemons
     public void setTable(){
-        //Got the idea from https://www.youtube.com/watch?v=nORt4szAmkI
+        // Got the idea from https://www.youtube.com/watch?v=nORt4szAmkI
         // Random for generating numbers
         Random r = new Random();
 
-        //Populate Pokemons
+        //Populate Pokemon
         while(NUM_POKEMON > 0){
             int row = r.nextInt(NUM_ROWS);
             int col = r.nextInt(NUM_COLS);

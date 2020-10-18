@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentManager;
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.GameState;
 import com.android.cmpt276as3.model.GetRandPokemonId;
+import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class GameScreen extends AppCompatActivity {
@@ -121,10 +122,40 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
-    private void displayNumberOfTimeScanned() {
-        int numberOfTimeScanned = gameState.getCountScan();
-        TextView textNumberOfTimeScanned = (TextView) findViewById(R.id.textNumberOfTimesScanned);
-        textNumberOfTimeScanned.setText(getString(R.string.numberOfTimesScanned,numberOfTimeScanned));
+    private void populatePokemon(int row, int col) {
+        Button btn = buttons[row][col];
+
+        //Lock Button Sizes:
+        lockButtonSizes();
+
+        //Set the pokemon table
+        gameState.setTable();
+
+        //If the button is Pokemon, set the backGround to pokemon
+        if(gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)) {
+            int newWidth = btn.getWidth();
+            int newHeight = btn.getHeight();
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), GetRandPokemonId.getId());
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+            Resources resource = getResources();
+            btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
+            MusicPlayer.playPokemonSound(this);
+        }
+    }
+
+    //TODO: Figure out how to count if I had clicked on the button previously or not
+    private void scanPokemon(int row, int col) {
+        if(!gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)) {
+            MusicPlayer.playScanSound(this);
+        }
+
+        //Calculate Scans
+        gameState.setScannedButtons(row,col);
+        //Let gameState know that the buttons is clicked
+        gameState.setClickedButtons(row,col);
+
+        //Display Clicked(Scanned) Button Numbers
+        displayNumbers();
     }
 
     private void displayNumberOfPokemonsLeft() {
@@ -133,19 +164,10 @@ public class GameScreen extends AppCompatActivity {
         textNumberOfPokemonsFound.setText(getString(R.string.numberOfPokemonFound,numberOfPokemonFound,NUM_POKEMON) );
     }
 
-    //TODO: Figure out how to count if I had clicked on the button previously or not
-    private void scanPokemon(int row, int col) {
-        //Calculate Scans
-
-        //gameState.calculateScan(row,col);
-
-        gameState.setScannedButtons(row,col);
-        //Let gameState know that the buttons is clicked
-        gameState.setClickedButtons(row,col);
-
-        //Display Clicked(Scanned) Button Numbers
-        displayNumbers();
-
+    private void displayNumberOfTimeScanned() {
+        int numberOfTimeScanned = gameState.getCountScan();
+        TextView textNumberOfTimeScanned = (TextView) findViewById(R.id.textNumberOfTimesScanned);
+        textNumberOfTimeScanned.setText(getString(R.string.numberOfTimesScanned,numberOfTimeScanned));
     }
 
     private void displayNumbers() {
@@ -157,27 +179,6 @@ public class GameScreen extends AppCompatActivity {
             }
         }
     }
-
-    private void populatePokemon(int row, int col) {
-        Button btn = buttons[row][col];
-
-        //Lock Button Sizes:
-        lockButtonSizes();
-
-        //Set the pokemon table
-        gameState.setTable();
-
-        //If the button is Pokemon, set the backGround to pokemon
-        if(gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)){
-            int newWidth = btn.getWidth();
-            int newHeight = btn.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), GetRandPokemonId.getId());
-            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-            Resources resource = getResources();
-            btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
-        }
-    }
-
 
     private void lockButtonSizes() {
         for(int row = 0; row < NUM_ROWS; row++){
