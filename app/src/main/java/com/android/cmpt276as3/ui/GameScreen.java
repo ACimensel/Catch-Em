@@ -56,11 +56,13 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void setupCongratulationMessage() {
-        if(gameState.getNumberOfPokemonFound() == NUM_POKEMON){
-            FragmentManager manager = getSupportFragmentManager();
-            CongratulationMessageFragment dialog = new CongratulationMessageFragment();
-            dialog.show(manager, "CongratulationMessageDialog");
-        }
+        //Disable Users' touch
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+
+        FragmentManager manager = getSupportFragmentManager();
+        CongratulationMessageFragment dialog = new CongratulationMessageFragment();
+        dialog.show(manager, "CongratulationMessageDialog");
     }
 
 
@@ -112,7 +114,10 @@ public class GameScreen extends AppCompatActivity {
                         displayNumberOfPokemonsLeft();
                         displayNumberOfTimeScanned();
 
-                        setupCongratulationMessage();
+                        //if the user wins
+                        if(gameState.getNumberOfPokemonFound() == NUM_POKEMON){
+                            setupCongratulationMessage();
+                        }
                     }
                 });
 

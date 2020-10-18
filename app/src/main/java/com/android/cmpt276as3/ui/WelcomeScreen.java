@@ -34,8 +34,7 @@ public class WelcomeScreen extends AppCompatActivity {
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //Animation
-        setupAnimation();
+
 
         gif = findViewById(R.id.loading_pokeball);
 
@@ -58,6 +57,9 @@ public class WelcomeScreen extends AppCompatActivity {
 
             }
         });
+
+        //Animation
+        setupAnimation();
     }
 
     private void setupAnimation() {

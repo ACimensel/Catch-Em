@@ -42,5 +42,13 @@
     <string name="coursehome_link">https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home\n</string>
     <string name="citations_header">Citations for Used Resources:</string>
     <string name="instruction_description">1. As the game starts the game board will be filled with unexplored grass. \n\n2. The trainer then chooses a patch of grass to explore. If there is a wild Pokemon \nbehind it, the trainer will catch the Pokemon, without the scanner triggering! \n\n3. When a patch of grass without a wild Pokemon is explored, the Pokedex will \nautomatically scan the row and column of that grass. This tells the trainer the number \nof Pokemon left in the unexplored rows and columns of the scanned patch of grass. \n\n4. The trainer may also choose to manually scan a location where a wild Pokemon \nwas already caught. This is done by tapping the location where you have caught \nthe Pokemon again. \n\n5. Using the information from the Pokedex scans, the trainer can make informed \nchoices about which patches of grass to explore. \n\n6. As the trainer finds more Pokemon, the Pokedex\'s revolutionary technology \nautomatically updates the count of uncaught Pokemon in the patches of grass \nthat were scanned. \n\n7. Trainer continues exploring until all Pokemon are found. \n\n8. Once the trainer has caught all wild Pokemon in the area, the game is over. \nThe challenge is catching all the Pokemon with the fewest scans. This will make \nProfessor Oak very proud!\n</string>
+    <string name="btn_start_img_link">btn_start_img - https://www.clipartmax.com/download/m2H7K9m2K9m2A0A0_awesome-pokemon-pictures-free-download-pikachu-icon-pikachu-png-icon/</string>
+    <string name="btn_option_img_link">btn_option_img - https://favpng.com/png_download/fqpvSFMW</string>
+    <string name="btn_help_img_link">bnt_help_img - https://www.pngaaa.com/detail/259213</string>
+
+
+    <string name="return_btn">Return</string>
+    <string name="congrats_you_caught_all_pokemons">Congrats! You Caught All Pokemons!</string>
+
 
 </resources>
