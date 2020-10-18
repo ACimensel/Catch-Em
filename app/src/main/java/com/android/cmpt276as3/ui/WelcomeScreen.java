@@ -16,6 +16,10 @@ import com.android.cmpt276as3.R;
 
 import pl.droidsonroids.gif.GifImageView;
 
+/**
+ *  class for Welcome Screen UI
+ */
+
 public class WelcomeScreen extends AppCompatActivity {
     private GifImageView gif;
     private boolean isButtonClicked = false;

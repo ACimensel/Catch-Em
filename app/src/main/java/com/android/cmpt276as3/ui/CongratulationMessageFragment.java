@@ -18,6 +18,10 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.android.cmpt276as3.R;
 
+/**
+ *   A fragment class to pop up Congratulation message when the user wins
+ */
+
 public class CongratulationMessageFragment extends AppCompatDialogFragment {
     @NonNull
     @Override

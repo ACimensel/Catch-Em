@@ -16,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.OptionsManager;
 
+/**
+ *  class for Option Screen UI
+ */
+
 public class OptionsScreen extends AppCompatActivity {
     private int selectedNumWildPokemon;
     private int selectedNumRows;
@@ -41,19 +45,7 @@ public class OptionsScreen extends AppCompatActivity {
         createRadioButtonsNumWildPokemon();
 
         setupSaveButton();
-        setupDeleteRecordButton();
-    }
-
-    private void setupDeleteRecordButton() {
-        ImageButton deleteRecordButton = findViewById(R.id.delete_scores);
-        deleteRecordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: Make it delete the record
-
-                finish();
-            }
-        });
+        setupResetButton();
     }
 
     private void createRadioButtonsNumRowsColumns() {
@@ -136,7 +128,7 @@ public class OptionsScreen extends AppCompatActivity {
 
     // TODO: THOMAS
     private void setupResetButton() {
-        Button resetButton = findViewById(R.id.resetBut);
+        ImageButton resetButton = findViewById(R.id.btnResetRecords);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

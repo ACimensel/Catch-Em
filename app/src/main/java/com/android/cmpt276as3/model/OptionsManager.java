@@ -7,6 +7,10 @@ import com.android.cmpt276as3.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
+/**
+ *  A model class for Option Screen. Also for tracking high scores and the total number of game played
+ */
+
 public class OptionsManager {
     private static int gameBoardRows;
     private static int gameBoardCols;

@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.cmpt276as3.R;
 
+/**
+ * A class for Help Screen UI
+ */
+
 public class HelpScreen extends AppCompatActivity {
     public static Intent makeLaunchIntent(Context context) {
         return new Intent(context, HelpScreen.class);

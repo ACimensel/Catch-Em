@@ -5,6 +5,10 @@ import android.media.MediaPlayer;
 
 import com.android.cmpt276as3.R;
 
+/**
+ * A class for playing sounds when the Pokemon is found and when the user scans. Also, for playing background music.
+ */
+
 public class MusicPlayer {
     private static MediaPlayer bgMusic;
     private static MediaPlayer scanSound;

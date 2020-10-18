@@ -13,6 +13,10 @@ import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
+/**
+ *  A class for Main Menu UI
+ */
+
 public class MainMenu extends AppCompatActivity {
     public static Intent makeLaunchIntent(Context context) {
         Intent intent = new Intent(context, MainMenu.class);

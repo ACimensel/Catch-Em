@@ -23,6 +23,10 @@ import com.android.cmpt276as3.model.GetRandPokemonId;
 import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
+/**
+ * A class for Game Screen UI
+ */
+
 public class GameScreen extends AppCompatActivity {
     private final int NUM_ROWS = OptionsManager.getGameBoardRows();
     private final int NUM_COLS = OptionsManager.getGameBoardCols();
@@ -46,13 +50,13 @@ public class GameScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // TODO: THOMAS
-        TextView plays = findViewById(R.id.numP);
-        plays.setText("" + OptionsManager.getNumPlays(this));
+        TextView plays = findViewById(R.id.textNumberOfTimesPlayed);
+        plays.setText(getString(R.string.number_of_games_played, OptionsManager.getNumPlays(this)));
 
         // TODO: THOMAS
-        TextView score = findViewById(R.id.highS);
-        if(OptionsManager.getHighScore(this) == Integer.MAX_VALUE) { score.setText("no high score"); }
-        else { score.setText("" + OptionsManager.getHighScore(this)); }
+        TextView score = findViewById(R.id.textHighScores);
+        if(OptionsManager.getHighScore(this) == Integer.MAX_VALUE) { score.setText(R.string.no_high_score); }
+        else { score.setText(getString(R.string.high_score,OptionsManager.getHighScore(this))); }
 
         populateButtons();
 
@@ -104,7 +108,7 @@ public class GameScreen extends AppCompatActivity {
                     textSize = 45;
                 }
                 else if(NUM_COLS*NUM_ROWS < 100){
-                    textSize = 30;
+                    textSize = 25;
                 }
                 btn.setTextSize( textSize);
                 //set text color
@@ -156,7 +160,7 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
-    //TODO: Figure out how to count if I had clicked on the button previously or not
+    //
     private void scanPokemon(int row, int col) {
         if(!gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)) {
             MusicPlayer.playScanSound(this);
@@ -174,7 +178,7 @@ public class GameScreen extends AppCompatActivity {
     private void displayNumberOfPokemonsLeft() {
         int numberOfPokemonFound = gameState.getNumberOfPokemonFound();
         TextView textNumberOfPokemonsFound = (TextView) findViewById(R.id.textNumberOfPokemonFound);
-        textNumberOfPokemonsFound.setText(getString(R.string.numberOfPokemonFound,numberOfPokemonFound,NUM_POKEMON) );
+        textNumberOfPokemonsFound.setText(getString(R.string.numberOfPokemonFound,numberOfPokemonFound,NUM_POKEMON));
     }
 
     private void displayNumberOfTimeScanned() {
