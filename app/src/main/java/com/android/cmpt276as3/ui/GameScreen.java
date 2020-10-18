@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -18,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.GameState;
+import com.android.cmpt276as3.model.GetRandPokemonId;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class GameScreen extends AppCompatActivity {
