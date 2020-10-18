@@ -33,11 +33,11 @@
 
     <ImageButton
         android:id="@+id/save_options"
-        android:layout_width="155dp"
-        android:layout_height="65dp"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
         android:padding="0dp"
         android:scaleType="fitXY"
-        android:text="@string/save_settings"
+
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".97"
-        app:srcCompat="@drawable/btn_save_setting_img" />
+        app:srcCompat="@drawable/btn_emty_img" />
 
     <TextView
         android:id="@+id/textView6"
@@ -77,4 +77,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".5" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abeezee"
+        android:text="@string/save_settings"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/save_options"
+        app:layout_constraintEnd_toEndOf="@+id/save_options"
+        app:layout_constraintStart_toStartOf="@+id/save_options"
+        app:layout_constraintTop_toTopOf="@+id/save_options" />
 </androidx.constraintlayout.widget.ConstraintLayout>
