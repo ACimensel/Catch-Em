@@ -4,6 +4,10 @@ import com.android.cmpt276as3.R;
 
 import java.util.Random;
 
+/**
+ * A class to randomize the Pokemons to be generated on the game board
+ */
+
 public class GetRandPokemonId {
     private final static int[] idArr = new int[] {
             R.drawable.rand_bulbasaur,

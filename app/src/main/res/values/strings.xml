@@ -11,7 +11,7 @@
     <string name="select_board_size">Select Board Size</string>
     <string name="select_number_of_wild_pokemon">Select Number of Wild Pokemon</string>
     <string name="save_settings">Save Settings</string>
-    <string name="numberOfTimesScanned"># Scans Used: %1$d </string>
+    <string name="numberOfTimesScanned"> # Scans Used: %1$d </string>
     <string name="numberOfPokemonFound"> Found %1d of %2d Pokemon </string>
     <string name="updatePokemonNumbers"> %1d </string>
     <string name="bg_welcome_link">bg_welcome - http://happyapple.us/minimalist-pokemon-wallpapers</string>
@@ -47,7 +47,10 @@
     <string name="btn_help_img_link">bnt_help_img - https://www.pngaaa.com/detail/259213</string>
     <string name="return_btn">Return</string>
     <string name="congrats_you_caught_all_pokemons">Congrats! You Caught All Pokemons!</string>
-    <string name="delete_records">Delete Records</string>
+    <string name="reset_records">Reset Records</string>
+    <string name="number_of_games_played"># of games played: %1$d</string>
+    <string name="high_score">\High Score: %1$d\</string>
+    <string name="no_high_score">No High Score</string>
 
 
 </resources>

@@ -2,6 +2,10 @@ package com.android.cmpt276as3.model;
 
 import java.util.Random;
 
+/**
+ * A model class for Game Screen.
+ */
+
 public class GameState {
     private final int NUM_ROWS = OptionsManager.getGameBoardRows();
     private final int NUM_COLS = OptionsManager.getGameBoardCols();
