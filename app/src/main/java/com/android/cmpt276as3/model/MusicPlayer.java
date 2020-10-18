@@ -18,7 +18,7 @@ public class MusicPlayer {
         }
 
         if (ref == null) {
-            ref = MediaPlayer.create(appContext, R.raw.battle_hall);
+            ref = MediaPlayer.create(appContext, R.raw.battle_hall_music);
             ref.start();
             ref.setLooping(true);
         }
