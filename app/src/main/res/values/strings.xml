@@ -11,5 +11,8 @@
     <string name="select_board_size">Select Board Size</string>
     <string name="select_number_of_wild_pokemon">Select Number of Wild Pokemon</string>
     <string name="save_settings">Save Settings</string>
+    <string name="numberOfTimesScanned">\"# Scans Used: %1$d \"</string>
+    <string name="numberOfPokemonFound">\"Found %1d of %2d Pokemons \"</string>
+    <string name="updatePokemonNumbers">\" %1d \"</string>
 
 </resources>
