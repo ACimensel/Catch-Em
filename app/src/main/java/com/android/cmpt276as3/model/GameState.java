@@ -3,10 +3,9 @@ package com.android.cmpt276as3.model;
 import java.util.Random;
 
 public class GameState {
-    private OptionsManager optManager = OptionsManager.getInstance();
-    private final int NUM_ROWS = optManager.getGameBoardRows();
-    private final int NUM_COLS = optManager.getGameBoardCols();
-    private int NUM_POKEMON = optManager.getNumWildPokemon();
+    private final int NUM_ROWS = OptionsManager.getGameBoardRows();
+    private final int NUM_COLS = OptionsManager.getGameBoardCols();
+    private int NUM_POKEMON = OptionsManager.getNumWildPokemon();
 
     int [][] tableForPokemon = new int[NUM_ROWS][NUM_COLS];
     boolean [][] clickedButtons = new boolean[NUM_ROWS][NUM_COLS];

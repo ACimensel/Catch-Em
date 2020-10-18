@@ -1,7 +1,5 @@
 package com.android.cmpt276as3.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,12 +11,12 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class OptionsScreen extends AppCompatActivity {
-    private static final String TAG = "OptionsScreen";
-    private OptionsManager optManager;
     private int selectedNumWildPokemon;
     private int selectedNumRows;
     private int selectedNumCols;
@@ -31,16 +29,13 @@ public class OptionsScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options_screen);
-        this.setTitle(TAG);
 
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        selectedNumWildPokemon = getNumWildPokemon(this);
-        selectedNumRows = getNumRows(this);
-        selectedNumCols = getNumCols(this);
-
-        optManager = OptionsManager.getInstance();
+        selectedNumWildPokemon = OptionsManager.getNumWildPokemon();
+        selectedNumRows = OptionsManager.getGameBoardRows();
+        selectedNumCols = OptionsManager.getGameBoardCols();
 
         createRadioButtonsNumRowsColumns();
         createRadioButtonsNumWildPokemon();
@@ -86,14 +81,10 @@ public class OptionsScreen extends AppCompatActivity {
             // add to radio group
             groupBoardSize.addView(button);
 
-            if(numRows == getNumRows(this) && numCols == getNumCols(this)) {
+            if(numRows == OptionsManager.getGameBoardRows() && numCols == OptionsManager.getGameBoardCols()) {
                 button.setChecked(true);
             }
         }
-        /*
-        if(numRowsArr.length > 0 && numColsArr.length > 0) {
-            ((RadioButton) groupBoardSize.getChildAt(0)).setChecked(true);
-        }*/
     }
 
     private void createRadioButtonsNumWildPokemon() {
@@ -116,14 +107,10 @@ public class OptionsScreen extends AppCompatActivity {
             // add to radio group
             groupNumWildPokemon.addView(button);
 
-            if (numWildPokemon == getNumWildPokemon(this)) {
+            if (numWildPokemon == OptionsManager.getNumWildPokemon()) {
                 button.setChecked(true);
             }
         }
-        /*
-        if(groupNumWildPokemon.getCheckedRadioButtonId() == -1 && numWildPokemonArr.length > 0) {
-            ((RadioButton)groupNumWildPokemon.getChildAt(0)).setChecked(true);
-        }*/
     }
 
     private void setupSaveButton() {
@@ -132,7 +119,6 @@ public class OptionsScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveData(selectedNumRows, selectedNumCols, selectedNumWildPokemon);
-                optManager.update(OptionsScreen.this);
                 finish();
             }
         });
@@ -145,20 +131,17 @@ public class OptionsScreen extends AppCompatActivity {
         editor.putInt("num_cols", numCols);
         editor.putInt("num_wild_pokemon", numWildPokemon);
         editor.apply();
+        OptionsManager.update(this);
     }
 
-    static public int getNumRows(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        return prefs.getInt("num_rows", context.getResources().getInteger(R.integer.default_num_rows));
-    }
-
-    static public int getNumCols(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        return prefs.getInt("num_cols", context.getResources().getInteger(R.integer.default_num_cols));
-    }
-
-    static public int getNumWildPokemon(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        return prefs.getInt("num_wild_pokemon", context.getResources().getInteger(R.integer.default_num_wild_pokemon));
+    // TODO: THOMAS
+    private void setupResetButton() {
+        Button resetButton = findViewById(R.id.resetBut);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OptionsManager.resetPlaysAndScores(OptionsScreen.this);
+            }
+        });
     }
 }

@@ -14,8 +14,6 @@ import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class MainMenu extends AppCompatActivity {
-    private static final String TAG = "MainMenu";
-
     public static Intent makeLaunchIntent(Context context) {
         Intent intent = new Intent(context, MainMenu.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -28,7 +26,6 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        this.setTitle(TAG);
 
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -37,8 +34,7 @@ public class MainMenu extends AppCompatActivity {
         setUpOptionsButton();
         setUpHelpButton();
 
-        OptionsManager optManager = OptionsManager.getInstance();
-        optManager.update(this);
+        OptionsManager.update(this);
 
         MusicPlayer.playMusic(getApplicationContext());
     }
@@ -49,6 +45,7 @@ public class MainMenu extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                OptionsManager.incrementPlays(MainMenu.this);
                 Intent i = GameScreen.makeLaunchIntent(MainMenu.this);
                 startActivity(i);
             }
