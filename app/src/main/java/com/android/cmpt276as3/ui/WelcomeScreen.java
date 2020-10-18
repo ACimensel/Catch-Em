@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,11 +22,20 @@ public class WelcomeScreen extends AppCompatActivity {
     private GifImageView gif;
     private boolean isButtonClicked = false;
 
+    Animation topAnim, bottomAnim;
+    ImageView imgFirstEevee, imgSecondEevee, imgThirdEevee, imgFourthEevee;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
         this.setTitle(TAG);
+
+        //delete the bar on top
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //Animation
+        setupAnimation();
 
         gif = findViewById(R.id.loading_pokeball);
 
@@ -42,8 +55,27 @@ public class WelcomeScreen extends AppCompatActivity {
                         }
                     }, 1000);
                 }
+
             }
         });
+    }
+
+    private void setupAnimation() {
+        //Code from https://www.youtube.com/watch?v=JLIFqqnSNmg
+        //Animation
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+
+        //Hook
+        imgFirstEevee = findViewById(R.id.imageFirstEevee);
+        imgSecondEevee = findViewById(R.id.imageSecondEevee);
+        imgThirdEevee = findViewById(R.id.imageThirdEevee);
+        imgFourthEevee = findViewById(R.id.imageFourthEevee);
+
+        imgFirstEevee.setAnimation(topAnim);
+        imgSecondEevee.setAnimation(bottomAnim);
+        imgThirdEevee.setAnimation(topAnim);
+        imgFourthEevee.setAnimation(bottomAnim);
     }
 
     @Override
