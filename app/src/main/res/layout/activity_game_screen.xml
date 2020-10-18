@@ -8,19 +8,21 @@
     >
 
     <ImageView
-        android:background="@drawable/bg_game"
-        android:alpha="0.7"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:alpha="0.7"
+        android:background="@drawable/bg_game" />
 
     <TextView
         android:id="@+id/textNumberOfPokemonFound"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="211dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
         android:text="text view. "
         android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableForButtons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,47 +37,53 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
+
         android:id="@+id/tableForButtons"
-        android:layout_width="679dp"
-        android:layout_height="327dp"
+        android:layout_width="765dp"
+        android:layout_height="304dp"
+        android:layout_marginBottom="45dp"
         android:stretchColumns="*"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.389">
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
 
     </TableLayout>
 
     <TextView
         android:id="@+id/textNumberOfTimesScanned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="166dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="28dp"
         android:text="TextView"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textNumberOfPokemonFound"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textNumberOfPokemonFound" />
 
     <TextView
-        android:id="@+id/numP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textNumberOfTimesPlayed"
+        android:layout_width="158dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="10dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tableForButtons"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/highS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textHighScores"
+        android:layout_width="129dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="28dp"
         android:text="TextView"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textNumberOfTimesPlayed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numP" />
+        app:layout_constraintTop_toTopOf="@+id/textNumberOfTimesPlayed" />
 </androidx.constraintlayout.widget.ConstraintLayout>

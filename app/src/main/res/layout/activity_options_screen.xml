@@ -42,12 +42,28 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".97"
-        app:srcCompat="@drawable/btn_emty_img" />
+        app:layout_constraintVertical_bias="0.898"
+        app:srcCompat="@drawable/btn_empty_img" />
+
+    <ImageButton
+        android:id="@+id/delete_scores"
+        android:layout_width="101dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="36dp"
+
+        android:padding="0dp"
+
+
+        android:scaleType="fitXY"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/btn_empty_img_red" />
 
     <TextView
         android:id="@+id/textView6"
@@ -92,12 +108,16 @@
         app:layout_constraintStart_toStartOf="@+id/save_options"
         app:layout_constraintTop_toTopOf="@+id/save_options" />
 
-    <Button
-        android:id="@+id/resetBut"
+    <TextView
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
-        app:layout_constraintBottom_toTopOf="@+id/save_options"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:fontFamily="@font/abeezee"
+        android:text="@string/delete_records"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/delete_scores"
+        app:layout_constraintEnd_toEndOf="@+id/delete_scores"
+        app:layout_constraintStart_toStartOf="@+id/delete_scores"
+        app:layout_constraintTop_toTopOf="@+id/delete_scores" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

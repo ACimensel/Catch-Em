@@ -47,6 +47,7 @@
     <string name="btn_help_img_link">bnt_help_img - https://www.pngaaa.com/detail/259213</string>
     <string name="return_btn">Return</string>
     <string name="congrats_you_caught_all_pokemons">Congrats! You Caught All Pokemons!</string>
+    <string name="delete_records">Delete Records</string>
 
 
 </resources>

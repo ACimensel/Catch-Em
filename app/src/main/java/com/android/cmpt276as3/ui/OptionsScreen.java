@@ -39,8 +39,21 @@ public class OptionsScreen extends AppCompatActivity {
 
         createRadioButtonsNumRowsColumns();
         createRadioButtonsNumWildPokemon();
+
         setupSaveButton();
-        setupResetButton();
+        setupDeleteRecordButton();
+    }
+
+    private void setupDeleteRecordButton() {
+        ImageButton deleteRecordButton = findViewById(R.id.delete_scores);
+        deleteRecordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Make it delete the record
+
+                finish();
+            }
+        });
     }
 
     private void createRadioButtonsNumRowsColumns() {
