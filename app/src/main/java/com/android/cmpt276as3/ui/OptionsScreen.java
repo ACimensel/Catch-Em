@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -39,6 +40,7 @@ public class OptionsScreen extends AppCompatActivity {
         createRadioButtonsNumRowsColumns();
         createRadioButtonsNumWildPokemon();
         setupSaveButton();
+        setupResetButton();
     }
 
     private void createRadioButtonsNumRowsColumns() {
@@ -117,5 +119,16 @@ public class OptionsScreen extends AppCompatActivity {
         editor.putInt("num_wild_pokemon", numWildPokemon);
         editor.apply();
         OptionsManager.update(this);
+    }
+
+    // TODO: THOMAS
+    private void setupResetButton() {
+        Button resetButton = findViewById(R.id.resetBut);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OptionsManager.resetPlaysAndScores(OptionsScreen.this);
+            }
+        });
     }
 }

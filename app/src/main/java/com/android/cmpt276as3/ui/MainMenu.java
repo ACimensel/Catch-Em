@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.cmpt276as3.R;
+import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class MainMenu extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class MainMenu extends AppCompatActivity {
 
         OptionsManager.update(this);
 
-        //MusicPlayer.playMusic(getApplicationContext());
+        MusicPlayer.playMusic(getApplicationContext());
     }
 
     private void setUpStartGameButton() {
@@ -44,6 +45,7 @@ public class MainMenu extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                OptionsManager.incrementPlays(MainMenu.this);
                 Intent i = GameScreen.makeLaunchIntent(MainMenu.this);
                 startActivity(i);
             }

@@ -91,4 +91,13 @@
         app:layout_constraintEnd_toEndOf="@+id/save_options"
         app:layout_constraintStart_toStartOf="@+id/save_options"
         app:layout_constraintTop_toTopOf="@+id/save_options" />
+
+    <Button
+        android:id="@+id/resetBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/save_options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

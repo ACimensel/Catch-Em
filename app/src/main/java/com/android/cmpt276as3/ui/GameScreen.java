@@ -31,7 +31,6 @@ public class GameScreen extends AppCompatActivity {
     //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
     GameState gameState = new GameState();
 
-
     Button[][] buttons = new Button[NUM_ROWS][NUM_COLS];
 
     public static Intent makeLaunchIntent(Context context) {
@@ -45,6 +44,15 @@ public class GameScreen extends AppCompatActivity {
 
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // TODO: THOMAS
+        TextView plays = findViewById(R.id.numP);
+        plays.setText("" + OptionsManager.getNumPlays(this));
+
+        // TODO: THOMAS
+        TextView score = findViewById(R.id.highS);
+        if(OptionsManager.getHighScore(this) == Integer.MAX_VALUE) { score.setText("no high score"); }
+        else { score.setText("" + OptionsManager.getHighScore(this)); }
 
         populateButtons();
 
@@ -113,6 +121,9 @@ public class GameScreen extends AppCompatActivity {
 
                         //if the user wins
                         if(gameState.getNumberOfPokemonFound() == NUM_POKEMON){
+                            if(gameState.getCountScan() < OptionsManager.getHighScore(GameScreen.this)) {
+                                OptionsManager.setHighScore(GameScreen.this, gameState.getCountScan());
+                            }
                             setupCongratulationMessage();
                         }
                     }
