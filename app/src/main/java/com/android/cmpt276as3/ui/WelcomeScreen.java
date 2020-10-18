@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -18,7 +17,6 @@ import com.android.cmpt276as3.R;
 import pl.droidsonroids.gif.GifImageView;
 
 public class WelcomeScreen extends AppCompatActivity {
-    private static final String TAG = "WelcomeScreen";
     private GifImageView gif;
     private boolean isButtonClicked = false;
 
@@ -29,7 +27,6 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
-        this.setTitle(TAG);
 
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);

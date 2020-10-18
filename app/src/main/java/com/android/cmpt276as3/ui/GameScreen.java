@@ -24,11 +24,9 @@ import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class GameScreen extends AppCompatActivity {
-    private static final String TAG = "GameScreen";
-    private OptionsManager optManager = OptionsManager.getInstance();
-    private final int NUM_ROWS = optManager.getGameBoardRows();
-    private final int NUM_COLS = optManager.getGameBoardCols();
-    private final int NUM_POKEMON = optManager.getNumWildPokemon();
+    private final int NUM_ROWS = OptionsManager.getGameBoardRows();
+    private final int NUM_COLS = OptionsManager.getGameBoardCols();
+    private final int NUM_POKEMON = OptionsManager.getNumWildPokemon();
 
     //this must stay here so that it doesn't create a new table over and over again whenever the button is clicked
     GameState gameState = new GameState();
@@ -44,7 +42,6 @@ public class GameScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
-        this.setTitle(TAG);
 
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
