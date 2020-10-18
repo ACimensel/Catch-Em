@@ -49,6 +49,7 @@
 
     <string name="return_btn">Return</string>
     <string name="congrats_you_caught_all_pokemons">Congrats! You Caught All Pokemons!</string>
+    <string name="delete_records">Delete Records</string>
 
 
 </resources>

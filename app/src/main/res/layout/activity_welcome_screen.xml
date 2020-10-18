@@ -83,7 +83,7 @@
         app:layout_constraintVertical_bias="1.0"
 
 
-        app:srcCompat="@drawable/btn_emty_img" />
+        app:srcCompat="@drawable/btn_empty_img" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/loading_pokeball"
