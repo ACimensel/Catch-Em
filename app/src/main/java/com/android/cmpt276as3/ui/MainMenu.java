@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +30,9 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         this.setTitle(TAG);
 
+        //delete the bar on top
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setUpStartGameButton();
         setUpOptionsButton();
         setUpHelpButton();
@@ -39,7 +44,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void setUpStartGameButton() {
-        Button btn= findViewById(R.id.btnStartGame);
+        ImageButton btn= findViewById(R.id.btnStartGame);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +56,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void setUpOptionsButton() {
-        Button btn= findViewById(R.id.btnOptions);
+        ImageButton btn= findViewById(R.id.btnOptions);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +68,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void setUpHelpButton() {
-        Button btn= findViewById(R.id.btnHelp);
+        ImageButton btn= findViewById(R.id.btnHelp);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

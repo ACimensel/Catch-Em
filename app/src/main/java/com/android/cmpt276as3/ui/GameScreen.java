@@ -18,7 +18,6 @@ import androidx.fragment.app.FragmentManager;
 
 import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.GameState;
-import com.android.cmpt276as3.model.GetRandPokemonId;
 import com.android.cmpt276as3.model.OptionsManager;
 
 public class GameScreen extends AppCompatActivity {
@@ -43,6 +42,9 @@ public class GameScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         this.setTitle(TAG);
+
+        //delete the bar on top
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         populateButtons();
 
@@ -120,13 +122,13 @@ public class GameScreen extends AppCompatActivity {
     private void displayNumberOfTimeScanned() {
         int numberOfTimeScanned = gameState.getCountScan();
         TextView textNumberOfTimeScanned = (TextView) findViewById(R.id.textNumberOfTimesScanned);
-        textNumberOfTimeScanned.setText("# Scans Used: " + numberOfTimeScanned);
+        textNumberOfTimeScanned.setText(getString(R.string.numberOfTimesScanned,numberOfTimeScanned));
     }
 
     private void displayNumberOfPokemonsLeft() {
         int numberOfPokemonFound = gameState.getNumberOfPokemonFound();
         TextView textNumberOfPokemonsFound = (TextView) findViewById(R.id.textNumberOfPokemonFound);
-        textNumberOfPokemonsFound.setText("Found " + numberOfPokemonFound + " of " + NUM_POKEMON + " Pokemons");
+        textNumberOfPokemonsFound.setText(getString(R.string.numberOfPokemonFound,numberOfPokemonFound,NUM_POKEMON) );
     }
 
     //TODO: Figure out how to count if I had clicked on the button previously or not
@@ -148,7 +150,7 @@ public class GameScreen extends AppCompatActivity {
         for(int row = 0; row < NUM_ROWS; row++){
             for(int col = 0; col < NUM_COLS; col++){
                 if(gameState.isButtonScanned(row,col)) {
-                    buttons[row][col].setText("" + gameState.updatePokemonNumber(row, col));
+                    buttons[row][col].setText(getString(R.string.updatePokemonNumbers,gameState.updatePokemonNumber(row, col)));
                 }
             }
         }

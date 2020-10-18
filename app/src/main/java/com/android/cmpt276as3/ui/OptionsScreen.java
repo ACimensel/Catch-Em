@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -30,6 +32,9 @@ public class OptionsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options_screen);
         this.setTitle(TAG);
+
+        //delete the bar on top
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         selectedNumWildPokemon = getNumWildPokemon(this);
         selectedNumRows = getNumRows(this);
@@ -108,7 +113,7 @@ public class OptionsScreen extends AppCompatActivity {
     }
 
     private void setupSaveButton() {
-        Button saveButton = findViewById(R.id.save_options);
+        ImageButton saveButton = findViewById(R.id.save_options);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
