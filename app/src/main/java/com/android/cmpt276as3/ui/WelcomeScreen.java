@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +26,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
         gif = findViewById(R.id.loading_pokeball);
 
-        final Button buttonGoMain = findViewById(R.id.button_gotomain);
+        final ImageButton buttonGoMain = findViewById(R.id.button_gotomain);
         buttonGoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -31,18 +31,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/save_options"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="155dp"
+        android:layout_height="65dp"
+        android:padding="0dp"
+        android:scaleType="fitXY"
         android:text="@string/save_settings"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".97" />
+        app:layout_constraintVertical_bias=".97"
+        app:srcCompat="@drawable/btn_save_setting_img" />
 
     <TextView
         android:id="@+id/textView6"
