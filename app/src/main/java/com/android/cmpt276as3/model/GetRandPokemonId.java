@@ -6,6 +6,8 @@ import java.util.Random;
 
 /**
  * A class to randomize the Pokemons to be generated on the game board
+ *
+ * randomly selects an index which in turn returns a pokemon image id from a static array
  */
 
 public class GetRandPokemonId {

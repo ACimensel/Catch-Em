@@ -6,10 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,8 +17,21 @@ import com.android.cmpt276as3.R;
 import com.android.cmpt276as3.model.OptionsManager;
 
 /**
- *  class for Option Screen UI
- */
+ *  Class for Options Screen UI
+ *
+ *  Options screen allows the user to select board size and number of wild pokemon.
+ *  Board size can be:
+ *      4 rows by 6 columns
+ *      5 rows by 10 columns
+ *      6 rows by 15 columns
+ *  User can select number of wild pokemon, from options including:
+ *      6 pokemon
+ *      10 pokemon
+ *      15 pokemon
+ *      20 pokemon
+ * The game size, and number of pokemon are saved between application runs.
+ * Allows the user to reset number of times game has been played, and best scores for each game configuration
+ * */
 
 public class OptionsScreen extends AppCompatActivity {
     private int selectedNumWildPokemon;
@@ -126,13 +139,13 @@ public class OptionsScreen extends AppCompatActivity {
         OptionsManager.update(this);
     }
 
-    // TODO: THOMAS
     private void setupResetButton() {
         ImageButton resetButton = findViewById(R.id.btnResetRecords);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OptionsManager.resetPlaysAndScores(OptionsScreen.this);
+                Toast.makeText(OptionsScreen.this, R.string.reset_toast, Toast.LENGTH_SHORT).show();
             }
         });
     }

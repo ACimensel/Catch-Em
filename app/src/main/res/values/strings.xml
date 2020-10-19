@@ -51,6 +51,9 @@
     <string name="number_of_games_played"># of games played: %1$d</string>
     <string name="high_score">\High Score: %1$d\</string>
     <string name="no_high_score">No High Score</string>
+    <string name="about_text">Application Created By:</string>
+    <string name="group_member_names">Artun Cimensel\nThomas (Hyeonyoung) Park\n</string>
+    <string name="reset_toast">Records have been reset!</string>
 
 
 </resources>

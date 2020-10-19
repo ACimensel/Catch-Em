@@ -4,6 +4,11 @@ import java.util.Random;
 
 /**
  * A model class for Game Screen.
+ *
+ * Contains the state of the game board. Keeps track of where the pokemon are, whether a button was clicked
+ * and whether a button was scanned.
+ *
+ * Includes functions like getters and setters for the matrices
  */
 
 public class GameState {
@@ -55,7 +60,6 @@ public class GameState {
                     count++;
                 }
             }
-
         }
         //Check its row
         for(int i = 0; i < NUM_COLS; i++){
@@ -115,5 +119,4 @@ public class GameState {
         //If the table has Pokemon, return true;
         return tableForPokemon[row][col] == -1;
     }
-
 }

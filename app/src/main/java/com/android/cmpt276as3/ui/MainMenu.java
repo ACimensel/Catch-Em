@@ -14,7 +14,11 @@ import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 /**
- *  A class for Main Menu UI
+ * Class for Main Menu UI
+ *
+ * Starts off by playing a nice song while the app is running.
+ * Sets up and displays buttons to navigate to the Game, Options and Help screens.
+ * Displayed buttons are custom and include embedded pokemon related images.
  */
 
 public class MainMenu extends AppCompatActivity {

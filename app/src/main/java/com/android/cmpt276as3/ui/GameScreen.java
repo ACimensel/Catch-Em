@@ -24,7 +24,23 @@ import com.android.cmpt276as3.model.MusicPlayer;
 import com.android.cmpt276as3.model.OptionsManager;
 
 /**
- * A class for Game Screen UI
+ *  Class for Game Screen UI
+ *
+ *  Sets up and displays a grid of buttons, the size of which is set by the options screen. A number of pokemon
+ *  are also populated (and hidden) in this grid, the number which is also determined by the options screen.
+ *
+ *  Displays text stating how many total wild pokemon there are in the grass (game board), and how many have been found.
+ *  Displays text stating how many scans it has taken the user so far this game.
+ *  Display text stating the total number of games started (saved between application launches),
+ *  and best score so far of any completed game of this specific configuration. Best scores are saved.
+ *
+ *  Tapping a cell (grass) investigates the cell, which either, reveals a pokemon if one is present or
+ *  performs a scan if either pokemon not present, or if pokemon has already been revealed. Pokemon image
+ *  is randomly generated to add randomness to what you will find.
+ *
+ *  When a scan is performed, the count of hidden mines in the row and column is displayed in that button.
+ *  When a pokemon is revealed, this class updates the count of hidden pokemon
+ *  Plays a corresponding sound depending on if a scan was performed or pokemon was found
  */
 
 public class GameScreen extends AppCompatActivity {
@@ -49,11 +65,9 @@ public class GameScreen extends AppCompatActivity {
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // TODO: THOMAS
         TextView plays = findViewById(R.id.textNumberOfTimesPlayed);
         plays.setText(getString(R.string.number_of_games_played, OptionsManager.getNumPlays(this)));
 
-        // TODO: THOMAS
         TextView score = findViewById(R.id.textHighScores);
         if(OptionsManager.getHighScore(this) == Integer.MAX_VALUE) { score.setText(R.string.no_high_score); }
         else { score.setText(getString(R.string.high_score,OptionsManager.getHighScore(this))); }
@@ -73,7 +87,6 @@ public class GameScreen extends AppCompatActivity {
         CongratulationMessageFragment dialog = new CongratulationMessageFragment();
         dialog.show(manager, "CongratulationMessageDialog");
     }
-
 
     private void populateButtons() {
         TableLayout table = findViewById(R.id.tableForButtons);
@@ -98,7 +111,6 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
-                //TODO: Auto resize the text in the button
                 //set text size in button
                 int textSize = 0;
                 if(NUM_COLS*NUM_ROWS < 25){
@@ -160,7 +172,6 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
-    //
     private void scanPokemon(int row, int col) {
         if(!gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)) {
             MusicPlayer.playScanSound(this);
@@ -177,13 +188,13 @@ public class GameScreen extends AppCompatActivity {
 
     private void displayNumberOfPokemonsLeft() {
         int numberOfPokemonFound = gameState.getNumberOfPokemonFound();
-        TextView textNumberOfPokemonsFound = (TextView) findViewById(R.id.textNumberOfPokemonFound);
+        TextView textNumberOfPokemonsFound = findViewById(R.id.textNumberOfPokemonFound);
         textNumberOfPokemonsFound.setText(getString(R.string.numberOfPokemonFound,numberOfPokemonFound,NUM_POKEMON));
     }
 
     private void displayNumberOfTimeScanned() {
         int numberOfTimeScanned = gameState.getCountScan();
-        TextView textNumberOfTimeScanned = (TextView) findViewById(R.id.textNumberOfTimesScanned);
+        TextView textNumberOfTimeScanned = findViewById(R.id.textNumberOfTimesScanned);
         textNumberOfTimeScanned.setText(getString(R.string.numberOfTimesScanned,numberOfTimeScanned));
     }
 
@@ -212,5 +223,4 @@ public class GameScreen extends AppCompatActivity {
             }
         }
     }
-
 }

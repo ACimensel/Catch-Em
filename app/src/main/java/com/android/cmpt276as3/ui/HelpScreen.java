@@ -10,7 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.cmpt276as3.R;
 
 /**
- * A class for Help Screen UI
+ * Class for Help Screen UI
+ *
+ * This screen explains to the user what the goal of the game is along with information explaining the basics
+ * about the game in the theme of catching pokemon.
+ * It displays our names (Artun & Thomas) in the about section and a hyperlink to the CMPT 276 home-page
+ * Has citations and links for all images, gifs, sounds used in the game.
+ * Pressing the Android back button on the Help screen returns to the Main Menu.
  */
 
 public class HelpScreen extends AppCompatActivity {

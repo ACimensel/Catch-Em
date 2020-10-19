@@ -17,7 +17,11 @@ import com.android.cmpt276as3.R;
 import pl.droidsonroids.gif.GifImageView;
 
 /**
- *  class for Welcome Screen UI
+ * Class for Welcome Screen UI
+ *
+ * Introduces the name of the application and name of the group members.
+ * Has an animation of pictures of Eevee and 3 of it's evolutions coming into the screen from different angles.
+ * Includes a custom made button to go to the Main Screen.
  */
 
 public class WelcomeScreen extends AppCompatActivity {
@@ -35,8 +39,6 @@ public class WelcomeScreen extends AppCompatActivity {
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
-
         gif = findViewById(R.id.loading_pokeball);
 
         final ImageButton buttonGoMain = findViewById(R.id.button_gotomain);
@@ -53,9 +55,8 @@ public class WelcomeScreen extends AppCompatActivity {
                             Intent i = MainMenu.makeLaunchIntent(WelcomeScreen.this);
                             startActivity(i);
                         }
-                    }, 1000);
+                    }, 500);
                 }
-
             }
         });
 
@@ -70,7 +71,6 @@ public class WelcomeScreen extends AppCompatActivity {
         bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
         leftAnim = AnimationUtils.loadAnimation(this,R.anim.left_animation);
         rightAnim = AnimationUtils.loadAnimation(this,R.anim.right_animation);
-
 
         //Hook
         imgFirstEevee = findViewById(R.id.imageFirstEevee);

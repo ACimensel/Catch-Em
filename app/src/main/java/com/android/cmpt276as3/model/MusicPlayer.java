@@ -7,6 +7,9 @@ import com.android.cmpt276as3.R;
 
 /**
  * A class for playing sounds when the Pokemon is found and when the user scans. Also, for playing background music.
+ *
+ * Background music is played once and is put on a loop. This is so multiple instances of the music are not played every
+ * time the user goes to the main screen, which is where it is called from.
  */
 
 public class MusicPlayer {

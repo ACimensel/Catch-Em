@@ -9,6 +9,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 /**
  *  A model class for Option Screen. Also for tracking high scores and the total number of game played
+ *
+ *  Sets and gets values from sharedpreferences. Acts as the memory bank for the settings, # of times played and high scores
  */
 
 public class OptionsManager {
@@ -62,14 +64,12 @@ public class OptionsManager {
 
     public static int getNumPlays(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
 
         return prefs.getInt("num_plays", 0);
     }
 
     public static int getHighScore(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("shared_settings", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
 
         if(gameBoardRows == 4 && gameBoardCols == 6) {
             if(numWildPokemon == 6)         { return prefs.getInt("highScore_4x6_6p", Integer.MAX_VALUE); }
