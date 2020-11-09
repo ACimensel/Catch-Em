@@ -1,4 +1,4 @@
-package com.android.cmpt276as3.ui;
+package com.android.catchem.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,11 +17,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.android.cmpt276as3.R;
-import com.android.cmpt276as3.model.GameState;
-import com.android.cmpt276as3.model.GetRandPokemonId;
-import com.android.cmpt276as3.model.MusicPlayer;
-import com.android.cmpt276as3.model.OptionsManager;
+import com.android.catchem.R;
+import com.android.catchem.model.GameState;
+import com.android.catchem.model.GetRandPokemonId;
+import com.android.catchem.model.MusicPlayer;
+import com.android.catchem.model.OptionsManager;
 
 /**
  *  Class for Game Screen UI

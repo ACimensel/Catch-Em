@@ -1,4 +1,4 @@
-package com.android.cmpt276as3;
+package com.android.catchem;
 
 import org.junit.Test;
 

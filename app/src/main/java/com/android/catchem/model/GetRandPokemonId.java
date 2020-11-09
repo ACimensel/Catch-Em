@@ -1,6 +1,6 @@
-package com.android.cmpt276as3.model;
+package com.android.catchem.model;
 
-import com.android.cmpt276as3.R;
+import com.android.catchem.R;
 
 import java.util.Random;
 

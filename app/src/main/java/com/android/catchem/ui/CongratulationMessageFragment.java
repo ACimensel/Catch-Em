@@ -1,4 +1,4 @@
-package com.android.cmpt276as3.ui;
+package com.android.catchem.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.android.cmpt276as3.R;
+import com.android.catchem.R;
 
 /**
  *  A fragment class to pop up Congratulation message when the user wins

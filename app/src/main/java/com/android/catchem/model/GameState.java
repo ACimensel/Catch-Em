@@ -1,4 +1,4 @@
-package com.android.cmpt276as3.model;
+package com.android.catchem.model;
 
 import java.util.Random;
 

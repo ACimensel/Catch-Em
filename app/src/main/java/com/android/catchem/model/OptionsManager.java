@@ -1,9 +1,9 @@
-package com.android.cmpt276as3.model;
+package com.android.catchem.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.android.cmpt276as3.R;
+import com.android.catchem.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

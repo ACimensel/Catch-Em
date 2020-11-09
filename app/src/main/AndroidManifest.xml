@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.cmpt276as3">
+    package="com.android.catchem">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.WelcomeScreen"
+            android:name="com.android.catchem.ui.WelcomeScreen"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
             >
@@ -21,22 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HelpScreen"
+        <activity android:name="com.android.catchem.ui.HelpScreen"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
             >
         </activity>
-        <activity android:name=".ui.OptionsScreen"
+        <activity android:name="com.android.catchem.ui.OptionsScreen"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
             >
         </activity>
-        <activity android:name=".ui.GameScreen"
+        <activity android:name="com.android.catchem.ui.GameScreen"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
             >
         </activity>
-        <activity android:name=".ui.MainMenu"
+        <activity android:name="com.android.catchem.ui.MainMenu"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"
             >

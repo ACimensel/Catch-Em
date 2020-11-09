@@ -1,9 +1,9 @@
-package com.android.cmpt276as3.model;
+package com.android.catchem.model;
 
 import android.content.Context;
 import android.media.MediaPlayer;
 
-import com.android.cmpt276as3.R;
+import com.android.catchem.R;
 
 /**
  * A class for playing sounds when the Pokemon is found and when the user scans. Also, for playing background music.

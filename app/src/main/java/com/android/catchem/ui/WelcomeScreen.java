@@ -1,4 +1,4 @@
-package com.android.cmpt276as3.ui;
+package com.android.catchem.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.cmpt276as3.R;
+import com.android.catchem.R;
 
 import pl.droidsonroids.gif.GifImageView;
 
