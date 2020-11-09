@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cmpt276as3</string>
+    <string name="app_name">Catch\'Em</string>
     <string name="main_menu">Main Menu</string>
     <string name="game_title">Gotta Catch Them All!</string>
     <string name="team_member_names"><![CDATA[Created by:\nArtun Cimensel & Thomas (Hyeonyoung) Park]]></string>
@@ -54,6 +54,5 @@
     <string name="about_text">Application Created By:</string>
     <string name="group_member_names">Artun Cimensel\nThomas (Hyeonyoung) Park\n</string>
     <string name="reset_toast">Records have been reset!</string>
-
 
 </resources>

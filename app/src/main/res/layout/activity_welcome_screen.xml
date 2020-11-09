@@ -4,68 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WelcomeScreen"
-    >
+    tools:context=".ui.WelcomeScreen">
 
-
-    <ImageView
-        android:id="@+id/imageFirstEevee"
-        android:layout_width="131dp"
-        android:layout_height="fill_parent"
-        android:layout_marginStart="70dp"
-        android:alpha="0.8"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_welcome_1st_eevee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageSecondEevee"
-        android:layout_width="131dp"
-        android:layout_height="fill_parent"
-        android:layout_marginStart="11dp"
-        android:alpha="0.8"
-
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_welcome_2nd_eevee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageFirstEevee"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageThirdEevee"
-        android:layout_width="131dp"
-        android:layout_height="fill_parent"
-        android:layout_marginStart="11dp"
-        android:alpha="0.8"
-
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_welcome_3rd_eevee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageSecondEevee"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageFourthEevee"
-        android:layout_width="131dp"
-        android:layout_height="fill_parent"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="70dp"
-        android:alpha="0.8"
-
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_welcome_4th_eevee"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageThirdEevee"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageFirstEevee"
+            android:layout_width="131dp"
+            android:layout_height="fill_parent"
+            android:alpha="0.8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_welcome_1st_eevee" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/imageSecondEevee"
+            android:layout_width="131dp"
+            android:layout_height="fill_parent"
+            android:alpha="0.8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_welcome_2nd_eevee" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/imageThirdEevee"
+            android:layout_width="131dp"
+            android:layout_height="fill_parent"
+            android:alpha="0.8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_welcome_3rd_eevee" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/imageFourthEevee"
+            android:layout_width="131dp"
+            android:layout_height="fill_parent"
+            android:alpha="0.8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_welcome_4th_eevee" />
+    </LinearLayout>
+
 
     <ImageButton
         android:id="@+id/button_gotomain"
