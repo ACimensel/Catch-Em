@@ -18,28 +18,38 @@ public class MusicPlayer {
     private static MediaPlayer pokemonSound;
 
     private MusicPlayer() {
+        // static class: prevent other classes from creating new ones
     }
 
-    public static void playMusic(Context context) {
-        if (bgMusic == null) {
+    public static void init(Context context) {
+        if (bgMusic == null && scanSound == null && pokemonSound == null) {
             bgMusic = MediaPlayer.create(context, R.raw.battle_hall_music);
-            bgMusic.start();
             bgMusic.setLooping(true);
+
+            scanSound = MediaPlayer.create(context, R.raw.scan_sound);
+
+            pokemonSound = MediaPlayer.create(context, R.raw.pokemon_sound);
         }
     }
 
-    public static void playScanSound(Context context) {
-        if (scanSound == null) {
-            scanSound = MediaPlayer.create(context, R.raw.scan_sound);
+    public static void playMusic() {
+        if (bgMusic != null) {
+            bgMusic.start();
         }
+    }
+
+    public static void pauseMusic() {
+        if (bgMusic != null) {
+            bgMusic.pause();
+        }
+    }
+
+    public static void playScanSound() {
         scanSound.seekTo(0);
         scanSound.start();
     }
 
-    public static void playPokemonSound(Context context) {
-        if (pokemonSound == null) {
-            pokemonSound = MediaPlayer.create(context, R.raw.pokemon_sound);
-        }
+    public static void playPokemonSound() {
         pokemonSound.seekTo(0);
         pokemonSound.start();
     }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.catchem.R;
+import com.android.catchem.model.MusicPlayer;
 import com.android.catchem.model.OptionsManager;
 
 /**
@@ -148,5 +149,11 @@ public class OptionsScreen extends AppCompatActivity {
                 Toast.makeText(OptionsScreen.this, R.string.reset_toast, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MusicPlayer.playMusic();
     }
 }

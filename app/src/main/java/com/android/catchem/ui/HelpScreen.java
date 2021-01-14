@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.catchem.R;
+import com.android.catchem.model.MusicPlayer;
 
 /**
  * Class for Help Screen UI
@@ -31,5 +32,11 @@ public class HelpScreen extends AppCompatActivity {
 
         //delete the bar on top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MusicPlayer.playMusic();
     }
 }

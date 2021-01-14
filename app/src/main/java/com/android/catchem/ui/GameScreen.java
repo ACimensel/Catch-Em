@@ -168,13 +168,13 @@ public class GameScreen extends AppCompatActivity {
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
-            MusicPlayer.playPokemonSound(this);
+            MusicPlayer.playPokemonSound();
         }
     }
 
     private void scanPokemon(int row, int col) {
         if(!gameState.isButtonPokemon(row, col) && !gameState.isButtonClicked(row, col)) {
-            MusicPlayer.playScanSound(this);
+            MusicPlayer.playScanSound();
         }
 
         //Calculate Scans
@@ -222,5 +222,11 @@ public class GameScreen extends AppCompatActivity {
                 btn.setMaxHeight(height);
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MusicPlayer.playMusic();
     }
 }

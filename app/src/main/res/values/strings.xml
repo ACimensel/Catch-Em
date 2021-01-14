@@ -35,7 +35,7 @@
     <string name="appicon_pokeball_link">appicon_pokeball - http://www.pngmart.com/files/2/Pokeball-PNG-Photos.png</string>
     <string name="loading_pokeball_gif_link">loading_pokeball_gif - https://gfycat.com/dampspanishcleanerwrasse</string>
     <string name="tile_tall_grass_link">tile_tall_grass - https://www.deviantart.com/rayquaza-dot/art/Pokemon-Platinum-Grass-Autotile-293299604</string>
-    <string name="goal_description">You want to be the very best, like no one ever was.\nTo catch them is your real test, to train them is your cause!\n\nYou are a young new trainer trying to catch Pokemon. To help your quest, \nProfessor Oak has installed a scanner in your Pokedex. Your goal is to find \nand catch all the Pokemon without depending on the scanner too much \nand using it as little as possible.\n</string>
+    <string name="goal_description">You want to be the very best, like no one ever was.\nTo catch them is your real test, to train them is your cause!\n\nYou are a young new trainer trying to catch Pokemon. To help your quest, \nProfessor Oak has installed a scanner in your Pokedex. Your goal is to find \nand catch all the Pokemon without depending on the scanner too much \nand use it as little as possible.\n</string>
     <string name="goal_header">Goal of the Game:</string>
     <string name="instruction_header">How to Play:</string>
     <string name="coursehome_header">CMPT 276 Course Home Page:</string>

@@ -1,7 +1,9 @@
 package com.android.catchem.ui;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -44,7 +46,24 @@ public class MainMenu extends AppCompatActivity {
 
         OptionsManager.update(this);
 
-        MusicPlayer.playMusic(getApplicationContext());
+        MusicPlayer.init(getApplicationContext());
+        listenForScreenTurningOff();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // turns off music if back button pressed from main activity
+        MusicPlayer.pauseMusic();
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (level == TRIM_MEMORY_UI_HIDDEN) {
+            // turns off music if overview/home buttons pressed
+            MusicPlayer.pauseMusic();
+        }
     }
 
     private void setUpStartGameButton() {
@@ -82,5 +101,22 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void listenForScreenTurningOff() {
+        IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                // turns off music if screen is turned off
+                MusicPlayer.pauseMusic();
+            }
+        }, screenStateFilter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MusicPlayer.playMusic();
     }
 }
