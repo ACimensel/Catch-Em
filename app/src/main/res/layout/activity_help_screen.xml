@@ -3,284 +3,309 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HelpScreen"
     android:background="@drawable/bg_help"
-    >
+    tools:context=".ui.HelpScreen">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteY="136dp"
-        android:padding="10dp" >
+        android:padding="@dimen/_7sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFFFFF"
-                android:paddingTop="20dp"
+                android:paddingTop="@dimen/_13sdp"
                 android:text="@string/goal_header"
-                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_13sdp"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/goal_description"
-                android:textColor="#DDDDDD" />
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFFFFF"
                 android:text="@string/instruction_header"
-                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_13sdp"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/instruction_description"
-                />
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFFFFF"
                 android:text="@string/about_text"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
-                android:text="@string/group_member_names" />
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFFFFF"
+                android:paddingStart="@dimen/_7sdp"
+                android:text="@string/group_member_names"
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="@string/coursehome_header"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
-                android:text="@string/coursehome_link"
-                android:autoLink="web"/>
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFFFFF"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
+                android:text="@string/coursehome_link"
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="@string/citations_header"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/bg_welcome_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/bg_main_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/bg_game_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/bg_options_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/bg_help_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_bulbasaur_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_butterfree_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_caterpie_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_charmander_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_eevee_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_pidgey_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_pikachu_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_porygon_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_squirtle_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/rand_weedle_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/battle_hall_music_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/pokemon_sound_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/scan_sound_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/appicon_pokeball_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/loading_pokeball_gif_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/tile_tall_grass_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/btn_start_img_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
                 android:text="@string/btn_option_img_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="10dp"
-                android:paddingEnd="0dp"
-                android:paddingBottom="20dp"
-                android:textColor="#DDDDDD"
+                android:autoLink="web"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_13sdp"
                 android:text="@string/btn_help_img_link"
-                android:autoLink="web"/>
+                android:textColor="#DDDDDD"
+                android:textSize="@dimen/_11sdp" />
         </LinearLayout>
     </ScrollView>
 

@@ -46,7 +46,7 @@
     <string name="btn_option_img_link">btn_option_img - https://favpng.com/png_download/fqpvSFMW</string>
     <string name="btn_help_img_link">bnt_help_img - https://www.pngaaa.com/detail/259213</string>
     <string name="return_btn">Return</string>
-    <string name="congrats_you_caught_all_pokemons">Congrats! You Caught All Pokemons!</string>
+    <string name="congrats_you_caught_all_pokemons">Congrats! \nYou Caught \nAll The \nPokemon!</string>
     <string name="reset_records">Reset Records</string>
     <string name="number_of_games_played"># of games played: %1$d</string>
     <string name="high_score">\High Score: %1$d\</string>

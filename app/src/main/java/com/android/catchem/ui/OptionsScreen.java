@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -38,6 +39,8 @@ public class OptionsScreen extends AppCompatActivity {
     private int selectedNumWildPokemon;
     private int selectedNumRows;
     private int selectedNumCols;
+    private final float RADIO_BUTTON_BASE_TEXT_SIZE = 14;
+    private final float BASE_SCREEN_SIZE = 5;
 
     public static Intent makeLaunchIntent(Context context) {
         return new Intent(context, OptionsScreen.class);
@@ -74,6 +77,7 @@ public class OptionsScreen extends AppCompatActivity {
             // create new radio button
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.num_rows_cols_option, numRows, numCols));
+            button.setTextSize(((float) getScreenSizeInInches() / BASE_SCREEN_SIZE) * RADIO_BUTTON_BASE_TEXT_SIZE);
 
             // set on-click callbacks
             button.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +105,7 @@ public class OptionsScreen extends AppCompatActivity {
             // create new radio button
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.num_wild_pokemon_option, numWildPokemon));
+            button.setTextSize(((float) getScreenSizeInInches() / BASE_SCREEN_SIZE) * RADIO_BUTTON_BASE_TEXT_SIZE);
 
             // set on-click callbacks
             button.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +154,15 @@ public class OptionsScreen extends AppCompatActivity {
                 Toast.makeText(OptionsScreen.this, R.string.reset_toast, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private double getScreenSizeInInches() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        double widthInches = (double) displayMetrics.widthPixels  / displayMetrics.xdpi;
+        double heightInches = (double) displayMetrics.heightPixels / displayMetrics.ydpi;
+        double screenInches = Math.sqrt(Math.pow(widthInches, 2) + Math.pow(heightInches, 2));
+        return screenInches;
     }
 
     @Override
